@@ -43,6 +43,7 @@ encaixa no conteúdo, sem repetir o do vídeo anterior:
 - Pergunta / opinião → "Comenta QUERO" (ou a palavra-chave do vídeo)
 - Crescer a conta → "Segue para mais dicas"
 Sempre com o @andreiaferreira_zome por baixo. Sem emojis no vídeo.
+Aparece no lugar das legendas nos últimos 2,5 s, para não tapar a cara.
 
 ## 7. Logótipos
 Assinatura em duas peças separadas (o monograma AF não entra nos vídeos), como as molduras de canto da marca — simples e
@@ -133,7 +134,8 @@ cta:
     - "Segue para mais dicas"
   instagram: "@andreiaferreira_zome"
   duracao: 2.5
-  posicao: 0.40
+  posicao: 0.555                # no lugar das legendas (abaixo da cara, acima dos 35% do Instagram)
+  substitui_legendas: true      # nos últimos segundos, o CTA aparece em vez das legendas
 
 logotipos:
   marca:

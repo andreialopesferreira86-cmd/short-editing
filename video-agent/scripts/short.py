@@ -142,14 +142,22 @@ def cmd_transcribe(a) -> None:
         die('falta instalar: pip install -r video-agent/requirements.txt')
     print(f'🎙️  A transcrever {take.name} (modelo {a.model})…')
     model = WhisperModel(a.model, device='auto', compute_type='int8')
-    segs, info = model.transcribe(str(take), language=a.language or None,
+    # áudio extraído com ffmpeg (mono, 16 kHz) — evita incompatibilidades da biblioteca PyAV
+    import numpy as np
+    pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(take), '-vn', '-ac', '1', '-ar', '16000',
+                          '-f', 's16le', '-'], capture_output=True).stdout
+    if not pcm:
+        die('não consegui extrair o áudio do take')
+    audio = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768.0
+    segs, info = model.transcribe(audio, language=a.language or None,
                                   word_timestamps=True, vad_filter=True)
     words = [{'w': w.word.strip(), 's': round(w.start, 3), 'e': round(w.end, 3)}
              for seg in segs for w in (seg.words or []) if w.word.strip()]
     data = {
         'take': str(take),
         'language': info.language,
-        'nota': 'Corrija "w" se a palavra estiver errada. Ponha "del": true para cortar a palavra do vídeo.',
+        'nota': 'Corrija "w" se a palavra estiver errada (texto vazio = não aparece na legenda). '
+                'Ponha "del": true para cortar a palavra do vídeo.',
         'words': words,
     }
     (work / 'transcript.json').write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding='utf-8')
@@ -194,7 +202,7 @@ def remap_words(words: list[dict], segs: list[tuple[float, float]], speed: float
     out, offset = [], 0.0
     for i, (ss, se) in enumerate(segs):
         for w in words:
-            if w.get('del'):
+            if w.get('del') or not str(w['w']).strip():   # texto vazio: fica no áudio, sai da legenda
                 continue
             mid = (w['s'] + w['e']) / 2
             if ss <= mid <= se:
@@ -246,7 +254,8 @@ def build_ass(groups, times, total: float, cfg: dict) -> str:
     ev = []
     hl = ass_color(C['destaque'])
     up = (lambda s: s.upper()) if L['maiusculas'] else (lambda s: s)
-    cap_end = total
+    # o CTA pode ocupar o lugar das legendas no fim (não tapa a cara)
+    cap_end = total - float(cta['duracao']) if cta['ativo'] and cta['texto'] and cta.get('substitui_legendas') else total
     for g, (gs, ge) in zip(groups, times):
         if gs >= cap_end:
             continue
