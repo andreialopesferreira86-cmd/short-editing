@@ -18,5 +18,5 @@ video-agent/edits/**/stills/
 .claude/skills/short-editing/engine/node_modules/
 video-agent/.tmp/
 video-agent/.env
-.claude/skills/short-editing/assets/icons/*.png
+.claude/skills/short-editing/assets/icons/**/*.png
 .claude/skills/short-editing/assets/music/*.mp3
