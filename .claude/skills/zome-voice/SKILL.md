@@ -1,9 +1,9 @@
 ---
-name: voice
+name: zome-voice
 description: Personaliza o visual padrão e o tom de voz dos shorts (7 perguntas rápidas, ~15 min, uma única vez) e grava tudo em video-agent/voice.md. Usar na primeira utilização, ou quando a pessoa quiser mudar cores, fontes, legendas, ritmo, CTA do Instagram ou logótipos.
 ---
 
-# /voice — personalizar o estilo (uma única vez)
+# /zome-voice — personalizar o estilo (uma única vez)
 
 Objetivo: preencher `video-agent/voice.md` (texto + bloco ```yaml) com o estilo real
 da pessoa, **validado visualmente sobre as próprias filmagens dela**.
@@ -60,4 +60,4 @@ reconhecimento de voz costuma errar, hashtags habituais.
 2. Validar o YAML: `python3 -c "import sys;sys.path.insert(0,'video-agent/scripts');import short;print(short.load_voice()['legendas'])"`.
 3. Gerar uma última pré-visualização e mostrá-la.
 4. Commit + push (regra do CLAUDE.md): voice.md, brand/, fonts/.
-5. Dizer: "Pronto! Agora grava um take, larga em `video-agent/takes/` e escreve `/short-editing`."
+5. Dizer: "Pronto! Agora grava um take, larga em `video-agent/takes/` e escreve /zome-short."

@@ -1,7 +1,7 @@
 # Voice — Andreia Ferreira · Zome Braga
 
-> Visual padrão e tom de voz de todos os shorts. Personalizado com `/voice` em 2026-11-20.
-> Pode ser editado à mão a qualquer momento. O `/short-editing` lê-o sempre antes de editar.
+> Visual padrão e tom de voz de todos os shorts. Personalizado com /zome-voice em 2026-11-20.
+> Pode ser editado à mão a qualquer momento. O /zome-short lê-o sempre antes de editar.
 > Marca, cores e regras de design vêm também do "brain" (`projects/zome-braga/About.md`).
 
 ## 1. Aparência
@@ -29,7 +29,7 @@ e os botões.
 cada lado.
 
 ## 5. Ritmo
-Depende da fala de cada vídeo — o `/short-editing` escolhe:
+Depende da fala de cada vídeo — o /zome-short escolhe:
 - **normal**: corta as pausas (> 0,35 s). Para vídeos calmos, imóveis, explicações.
 - **rapido**: corta todas as pausas (> 0,2 s) e acelera 8%. Para dicas, notícias,
   quando a fala já é dinâmica ou o vídeo passa dos 30 s.
@@ -41,7 +41,7 @@ nas pausas. Alternativa mais luminosa: "Bali calme" (kalimba e marimba). Ambas g
 por código no brain — sem direitos de autor, o Instagram não silencia o vídeo.
 
 ## 6. Chamada para ação (Instagram @andreiaferreira_zome)
-O texto final **varia de vídeo para vídeo** — o `/short-editing` escolhe o que melhor
+O texto final **varia de vídeo para vídeo** — o /zome-short escolhe o que melhor
 encaixa no conteúdo, sem repetir o do vídeo anterior:
 - Dicas / informação → "Guarda para mais tarde" ou "Partilha com quem precisa"
 - Imóvel à venda → "Fala comigo no WhatsApp" ou "Partilha com quem procura casa"
@@ -135,7 +135,7 @@ musica:                         # música de fundo sem direitos de autor (gerada
 
 cta:
   ativo: true
-  texto: "Guarda para mais tarde"   # por omissão; o /short-editing escolhe por vídeo (--cta)
+  texto: "Guarda para mais tarde"   # por omissão; o /zome-short escolhe por vídeo (--cta)
   opcoes:
     - "Guarda para mais tarde"
     - "Partilha com quem precisa"

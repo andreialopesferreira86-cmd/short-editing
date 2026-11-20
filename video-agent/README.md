@@ -17,18 +17,18 @@ as legendas `.srt` e o texto da publicação.
 
 ## Usar
 
-1. **`/voice`** — personaliza o visual padrão (7 perguntas rápidas: aparência, cor,
+1. **/zome-voice** — personaliza o visual padrão (7 perguntas rápidas: aparência, cor,
    fontes, legendas, ritmo, chamada para ação do Instagram, os logótipos reais das
    tuas ferramentas — vistos sobre as tuas próprias filmagens). ~15 min, uma única vez.
 2. **Grava um take** (telemóvel, webcam, câmara) e larga-o em `video-agent/takes/`.
-3. **`/short-editing`** — recebes:
+3. **/zome-short** — recebes:
    - `video-agent/edits/short-<slug>/output/short-<slug>.mp4` (aberto automaticamente)
    - `short-<slug>.srt` (legendas)
    - `post.md` (texto da publicação)
 
-Não sabes qual usar? Escreve **`/editing <o que queres>`** e ele escolhe.
+Não sabes qual usar? Escreve **`/zome-editing <o que queres>`** e ele escolhe.
 
-## O que o `/short-editing` faz
+## O que o /zome-short faz
 
 | Passo | Como |
 |---|---|
@@ -48,7 +48,7 @@ para cortar) e corre `python3 video-agent/scripts/short.py render --slug <slug>`
 
 ```
 video-agent/
-├── voice.md          ← o teu estilo (criado pelo /voice)
+├── voice.md          ← o teu estilo (criado pelo /zome-voice)
 ├── takes/            ← larga aqui as gravações (não vão para o GitHub)
 ├── edits/            ← resultados (os .mp4 não vão para o GitHub; .srt e textos sim)
 ├── brand/logo.png    ← o teu logótipo

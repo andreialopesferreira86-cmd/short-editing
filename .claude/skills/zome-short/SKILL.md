@@ -1,9 +1,9 @@
 ---
-name: short-editing
+name: zome-short
 description: Edita um take bruto (telemóvel, webcam, câmara) de video-agent/takes/ num short vertical pronto a publicar — corta silêncios e hesitações, enquadra 9:16, legendas animadas, logótipos, CTA do Instagram — seguindo video-agent/voice.md. Entrega short-<slug>.mp4, legendas .srt e o texto da publicação.
 ---
 
-# /short-editing — do take ao short pronto
+# /zome-short — do take ao short pronto
 
 Fala sempre em português. Segue SEMPRE `video-agent/voice.md`.
 Resultado: `video-agent/edits/short-<slug>/output/` com
@@ -14,7 +14,7 @@ Resultado: `video-agent/edits/short-<slug>/output/` com
   `video-agent/takes/` que ainda não tenha pasta `edits/short-<slug>/output/*.mp4`.
 - Sem takes: explicar "Grava um take e larga-o em `video-agent/takes/`" e parar.
 - Se `voice.md` ainda diz "valores por omissão", avisar uma vez que pode correr
-  `/voice` para personalizar — e continuar com os valores por omissão.
+  /zome-voice para personalizar — e continuar com os valores por omissão.
 - `<slug>`: curto, minúsculas, com hífens, a partir do nome do ficheiro ou do tema.
 
 ## 2. Transcrever

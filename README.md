@@ -22,9 +22,9 @@ Não precisa de instalar nada e os vídeos **não são enviados para nenhum serv
 
 ## 🎬 Agente de edição automática (Claude Code)
 
-Na pasta [`video-agent/`](video-agent/README.md): `/voice` (estilo, uma vez) →
-larga o take em `video-agent/takes/` → `/short-editing` → short pronto + `.srt` + texto da publicação.
-Não sabe qual usar? `/editing <o que quer>`.
+Na pasta [`video-agent/`](video-agent/README.md): /zome-voice (estilo, uma vez) →
+larga o take em `video-agent/takes/` → /zome-short → short pronto + `.srt` + texto da publicação.
+Não sabe qual usar? `/zome-editing <o que quer>`.
 
 ## Como usar o editor no navegador
 
