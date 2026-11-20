@@ -22,7 +22,11 @@ Montserrat ExtraBold (legendas e CTA). Colocar `Montserrat-ExtraBold.ttf` em
 
 ## 4. Legendas
 3 palavras de cada vez, em MAIÚSCULAS, a palavra dita em carmim, um pouco abaixo
-do centro (longe dos botões do Instagram e do logótipo).
+do centro — sempre acima dos 35% de baixo, onde o Instagram põe a descrição, a música
+e os botões.
+
+**Zonas seguras do Reels** (nada importante aqui): 14% de cima, 35% de baixo, 6% de
+cada lado.
 
 ## 5. Ritmo
 Depende da fala de cada vídeo — o `/short-editing` escolhe:
@@ -42,8 +46,9 @@ Sempre com o @andreiaferreira_zome por baixo. Sem emojis no vídeo.
 
 ## 7. Logótipos
 Assinatura em duas peças separadas (o monograma AF não entra nos vídeos), como as molduras de canto da marca — simples e
-equilibrada, nunca um logótipo grande por cima do vídeo. No topo, para não ficar
-tapada pelo nome da conta e pela descrição do Instagram (que ficam em baixo):
+equilibrada, nunca um logótipo grande por cima do vídeo. No topo, logo abaixo dos
+14% reservados ao Instagram, para não ficar tapada pelo título "Reels", pela câmara,
+pela descrição, pela música ou pelos botões:
 - **Andreia Ferreira · Consultora Imobiliária** → canto **superior esquerdo**
 - **Telefone** (963 609 184) **+ logótipo Zome** por baixo → canto **superior direito**
 
@@ -101,7 +106,7 @@ legendas:
   tamanho: 84
   contorno: 6
   estilo: contorno              # contorno | caixa
-  posicao: 0.66                 # 0 = topo, 1 = fundo
+  posicao: 0.60                 # 0 = topo, 1 = fundo — acima dos 35% de baixo (descrição, música, botões)
 
 ritmo:                          # por omissão (= normal)
   cortar_silencios: true
@@ -134,9 +139,9 @@ logotipos:
   marca:
     cor: auto                   # auto | branco | preto | carmim | azul
     opacidade: 0.9
-    margem: 0.05                # distância às laterais (fração da largura)
+    margem: 0.065               # zona segura: 6% de cada lado
     margem_vertical: 0.09       # distância ao fundo (fração da altura)
-    margem_topo: 0.08           # distância ao topo — abaixo do título "Reels" e do ícone da câmara
+    margem_topo: 0.145          # zona segura do Reels: 14% do topo livres (título "Reels", câmara)
     pecas:
       - ficheiro: brand/nome.png
         posicao: superior-esquerdo
