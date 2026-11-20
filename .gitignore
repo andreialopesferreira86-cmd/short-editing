@@ -8,3 +8,13 @@ video-agent/edits/_preview/
 video-agent/edits/**/filter.txt
 __pycache__/
 .DS_Store
+
+# Pacote video-agent-skills (Melvynx)
+video-agent/takes/
+video-agent/edits/**/*.mp4
+video-agent/edits/**/assets/
+video-agent/edits/**/stills/
+.claude/skills/short-editing/.runtime/
+.claude/skills/short-editing/engine/node_modules/
+video-agent/.tmp/
+video-agent/.env
