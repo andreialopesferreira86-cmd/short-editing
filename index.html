@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Short Editing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>✂️ Short Editing</h1>
+    <p>Editor de vídeos curtos (Reels, TikTok, Shorts) direto no navegador. Nada é enviado para servidores.</p>
+  </header>
+
+  <main>
+    <section class="preview">
+      <canvas id="canvas" width="1080" height="1920"></canvas>
+      <div class="player">
+        <button id="btnPlay" disabled>▶ Reproduzir</button>
+        <input id="seek" type="range" min="0" max="0" step="0.01" value="0" disabled>
+        <span id="time">0:00 / 0:00</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="card">
+        <h2>1. Vídeo</h2>
+        <label class="file">
+          <input id="fileInput" type="file" accept="video/*">
+          <span>Escolher vídeo…</span>
+        </label>
+        <p id="fileInfo" class="muted">Nenhum vídeo carregado.</p>
+      </div>
+
+      <div class="card">
+        <h2>2. Cortar</h2>
+        <div class="row">
+          <label>Início (s) <input id="trimStart" type="number" min="0" step="0.1" value="0"></label>
+          <label>Fim (s) <input id="trimEnd" type="number" min="0" step="0.1" value="0"></label>
+        </div>
+        <div class="row">
+          <button id="setStart" class="small">Início = posição atual</button>
+          <button id="setEnd" class="small">Fim = posição atual</button>
+        </div>
+        <p id="duration" class="muted">Duração final: 0,0 s</p>
+      </div>
+
+      <div class="card">
+        <h2>3. Enquadramento (9:16)</h2>
+        <label>Modo
+          <select id="fitMode">
+            <option value="cover">Preencher (corta as laterais)</option>
+            <option value="blur">Ajustar com fundo desfocado</option>
+            <option value="contain">Ajustar com fundo preto</option>
+          </select>
+        </label>
+        <label>Zoom <input id="zoom" type="range" min="1" max="3" step="0.01" value="1"></label>
+        <label>Posição horizontal <input id="posX" type="range" min="0" max="1" step="0.01" value="0.5"></label>
+        <label>Posição vertical <input id="posY" type="range" min="0" max="1" step="0.01" value="0.5"></label>
+      </div>
+
+      <div class="card">
+        <h2>4. Textos e legendas</h2>
+        <div id="captions"></div>
+        <button id="addCaption" class="small">+ Adicionar texto</button>
+      </div>
+
+      <div class="card">
+        <h2>5. Exportar</h2>
+        <label>Qualidade
+          <select id="quality">
+            <option value="8000000">Alta (8 Mbps)</option>
+            <option value="4000000" selected>Média (4 Mbps)</option>
+            <option value="2000000">Leve (2 Mbps)</option>
+          </select>
+        </label>
+        <button id="btnExport" class="primary" disabled>⬇ Exportar vídeo</button>
+        <progress id="progress" max="1" value="0" hidden></progress>
+        <p id="exportInfo" class="muted">A exportação acontece em tempo real (um vídeo de 30 s leva cerca de 30 s).</p>
+      </div>
+    </section>
+  </main>
+
+  <template id="captionTpl">
+    <div class="caption">
+      <textarea rows="2" placeholder="Escreva o texto…"></textarea>
+      <div class="row">
+        <label>De (s) <input data-k="start" type="number" min="0" step="0.1"></label>
+        <label>Até (s) <input data-k="end" type="number" min="0" step="0.1"></label>
+      </div>
+      <div class="row">
+        <label>Posição
+          <select data-k="pos">
+            <option value="top">Topo</option>
+            <option value="center">Centro</option>
+            <option value="bottom" selected>Baixo</option>
+          </select>
+        </label>
+        <label>Tamanho <input data-k="size" type="number" min="20" max="200" value="72"></label>
+        <label>Cor <input data-k="color" type="color" value="#ffffff"></label>
+      </div>
+      <button class="small danger remove">Remover</button>
+    </div>
+  </template>
+
+  <video id="video" playsinline preload="auto" hidden></video>
+  <script src="app.js"></script>
+</body>
+</html>
