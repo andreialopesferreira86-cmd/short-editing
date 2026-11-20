@@ -41,11 +41,10 @@ encaixa no conteúdo, sem repetir o do vídeo anterior:
 Sempre com o @andreiaferreira_zome por baixo. Sem emojis no vídeo.
 
 ## 7. Logótipos
-Assinatura em peças separadas, como as molduras de canto da marca — simples e
+Assinatura em duas peças separadas (sem o monograma AF), como as molduras de canto da marca — simples e
 equilibrada, nunca um logótipo grande por cima do vídeo:
 - **Telefone** (963 609 184) → canto **inferior esquerdo**
 - **Andreia Ferreira · Consultora Imobiliária** → canto **inferior direito**
-- **Monograma AF** → **ao centro, em baixo** (alternativa: ao centro, no topo)
 
 Cor automática peça a peça: **branco** sobre zonas escuras, **preto** sobre zonas
 claras (`--logo carmim` para forçar uma cor). Sem logótipos de ferramentas por agora.
@@ -144,10 +143,6 @@ logotipos:
       - ficheiro: brand/nome.png
         posicao: inferior-direito
         tamanho: 0.34
-      - ficheiro: brand/monograma-af.png
-        posicao: inferior-centro   # ou superior-centro
-        tamanho: 0.065
-        # cor: carmim           # descomentar para o AF ficar sempre em carmim
   ferramentas:
     tamanho: 0.22
     duracao: 2.0
