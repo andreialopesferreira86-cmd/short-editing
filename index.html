@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>✂️ Short Editing</h1>
-    <p>Editor de vídeos curtos (Reels, TikTok, Shorts) direto no navegador. Nada é enviado para servidores.</p>
+    <p>Editor de vídeos curtos (Reels, TikTok, Shorts) direto no navegador. Os seus vídeos nunca saem do seu dispositivo.</p>
   </header>
 
   <main>
@@ -60,13 +60,98 @@
       </div>
 
       <div class="card">
-        <h2>4. Textos e legendas</h2>
-        <div id="captions"></div>
-        <button id="addCaption" class="small">+ Adicionar texto</button>
+        <h2>4. Legendas</h2>
+
+        <div class="sub">
+          <h3>🤖 Legendas automáticas</h3>
+          <div class="row">
+            <label>Idioma do vídeo
+              <select id="asrLang">
+                <option value="portuguese" selected>Português</option>
+                <option value="english">Inglês</option>
+                <option value="spanish">Espanhol</option>
+                <option value="french">Francês</option>
+                <option value="">Detetar automaticamente</option>
+              </select>
+            </label>
+            <label>Precisão
+              <select id="asrModel">
+                <option value="onnx-community/whisper-tiny">Rápida (≈40 MB)</option>
+                <option value="onnx-community/whisper-base" selected>Equilibrada (≈80 MB)</option>
+                <option value="onnx-community/whisper-small">Alta, mais lenta (≈250 MB)</option>
+              </select>
+            </label>
+            <label>Palavras por legenda
+              <select id="asrWords">
+                <option value="3">3 (estilo TikTok)</option>
+                <option value="5" selected>5</option>
+                <option value="8">8</option>
+                <option value="0">Frase inteira</option>
+              </select>
+            </label>
+          </div>
+          <button id="btnAsr" class="primary" disabled>🎙️ Gerar legendas automáticas</button>
+          <progress id="asrProgress" max="1" value="0" hidden></progress>
+          <p id="asrInfo" class="muted">Na primeira vez, o modelo é descarregado e fica guardado no navegador. Depois, reveja cada legenda na lista abaixo.</p>
+        </div>
+
+        <div class="sub">
+          <h3>🎨 Estilo</h3>
+          <div class="row">
+            <label>Tamanho <input id="capSize" type="number" min="20" max="200" value="72"></label>
+            <label>Cor <input id="capColor" type="color" value="#ffffff"></label>
+            <label>Fundo
+              <select id="capBox">
+                <option value="outline" selected>Contorno preto</option>
+                <option value="box">Caixa escura</option>
+                <option value="none">Nenhum</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="sub">
+          <div class="list-head">
+            <h3>📝 Rever legendas <span id="capCount" class="badge">0</span></h3>
+            <div class="row tight">
+              <button id="addCaption" class="small">+ Adicionar</button>
+              <button id="clearCaptions" class="small danger">Apagar todas</button>
+            </div>
+          </div>
+          <p class="muted">Use ▶ para ouvir cada trecho, corrija o texto ou os tempos e apague com 🗑 o que não quiser.</p>
+          <div id="captions"></div>
+        </div>
       </div>
 
       <div class="card">
-        <h2>5. Exportar</h2>
+        <h2>5. Logotipo</h2>
+        <label class="file">
+          <input id="logoInput" type="file" accept="image/*">
+          <span id="logoLabel">Escolher logotipo (PNG com fundo transparente é o ideal)…</span>
+        </label>
+        <div id="logoControls" hidden>
+          <div class="row">
+            <label>Canto
+              <select id="logoCorner">
+                <option value="br" selected>Inferior direito</option>
+                <option value="bl">Inferior esquerdo</option>
+                <option value="tr">Superior direito</option>
+                <option value="tl">Superior esquerdo</option>
+              </select>
+            </label>
+            <label>Tamanho <input id="logoSize" type="range" min="0.06" max="0.4" step="0.01" value="0.18"></label>
+          </div>
+          <div class="row">
+            <label>Transparência <input id="logoOpacity" type="range" min="0.2" max="1" step="0.05" value="0.9"></label>
+            <label>Margem <input id="logoMargin" type="range" min="0" max="0.15" step="0.005" value="0.04"></label>
+          </div>
+          <button id="logoRemove" class="small danger">Remover logotipo</button>
+        </div>
+        <p class="muted">O logotipo fica memorizado neste navegador para os próximos vídeos.</p>
+      </div>
+
+      <div class="card">
+        <h2>6. Exportar</h2>
         <label>Qualidade
           <select id="quality">
             <option value="8000000">Alta (8 Mbps)</option>
@@ -83,23 +168,19 @@
 
   <template id="captionTpl">
     <div class="caption">
+      <div class="cap-top">
+        <button class="small play" title="Ouvir este trecho">▶</button>
+        <input data-k="start" type="number" min="0" step="0.1" title="Início (s)">
+        <span class="muted">→</span>
+        <input data-k="end" type="number" min="0" step="0.1" title="Fim (s)">
+        <select data-k="pos" title="Posição">
+          <option value="top">Topo</option>
+          <option value="center">Centro</option>
+          <option value="bottom" selected>Baixo</option>
+        </select>
+        <button class="small danger remove" title="Apagar">🗑</button>
+      </div>
       <textarea rows="2" placeholder="Escreva o texto…"></textarea>
-      <div class="row">
-        <label>De (s) <input data-k="start" type="number" min="0" step="0.1"></label>
-        <label>Até (s) <input data-k="end" type="number" min="0" step="0.1"></label>
-      </div>
-      <div class="row">
-        <label>Posição
-          <select data-k="pos">
-            <option value="top">Topo</option>
-            <option value="center">Centro</option>
-            <option value="bottom" selected>Baixo</option>
-          </select>
-        </label>
-        <label>Tamanho <input data-k="size" type="number" min="20" max="200" value="72"></label>
-        <label>Cor <input data-k="color" type="color" value="#ffffff"></label>
-      </div>
-      <button class="small danger remove">Remover</button>
     </div>
   </template>
 
