@@ -41,12 +41,14 @@ encaixa no conteúdo, sem repetir o do vídeo anterior:
 Sempre com o @andreiaferreira_zome por baixo. Sem emojis no vídeo.
 
 ## 7. Logótipos
-- **Só o logótipo da marca, centrado no fundo do vídeo**: horizontal "Andreia Ferreira ·
-  Consultora Imobiliária · 963 609 184 · Zome", pequeno e discreto (assinatura, não
-  carimbo), acima da zona coberta pelos botões do Instagram.
-- **Branco** em vídeos escuros (por omissão), **preto** em vídeos muito claros
-  (`--logo preto`), carmim só se ficar elegante.
-- Sem logótipos de ferramentas por agora.
+Assinatura em peças separadas, como as molduras de canto da marca — simples e
+equilibrada, nunca um logótipo grande por cima do vídeo:
+- **Telefone** (963 609 184) → canto **inferior esquerdo**
+- **Andreia Ferreira · Consultora Imobiliária** → canto **inferior direito**
+- **Monograma AF** → **ao centro, em baixo** (alternativa: ao centro, no topo)
+
+Cor automática peça a peça: **branco** sobre zonas escuras, **preto** sobre zonas
+claras (`--logo carmim` para forçar uma cor). Sem logótipos de ferramentas por agora.
 
 ## Tom de voz (texto da publicação)
 - Português de Portugal. Trata por **tu** nas dicas e conteúdos leves; por **você**
@@ -130,16 +132,22 @@ cta:
 
 logotipos:
   marca:
-    ficheiro: brand/logo-branco.png
-    variantes:                  # render --logo preto
-      branco: brand/logo-branco.png
-      preto: brand/logo-preto.png
-      carmim: brand/logo-carmim.png
-    canto: inferior-centro      # inferior-centro | inferior-direito | inferior-esquerdo | superior-...
-    tamanho: 0.34               # fração da largura
-    opacidade: 0.85
-    margem: 0.04
-    margem_vertical: 0.15       # distância ao fundo (fração da altura) — acima dos botões do Instagram
+    cor: auto                   # auto | branco | preto | carmim | azul
+    opacidade: 0.9
+    margem: 0.05                # distância às laterais (fração da largura)
+    margem_vertical: 0.15       # distância ao fundo (fração da altura) — acima da legenda do Instagram
+    margem_topo: 0.06           # para peças no topo
+    pecas:
+      - ficheiro: brand/telefone.png
+        posicao: inferior-esquerdo
+        tamanho: 0.26           # fração da largura do ecrã
+      - ficheiro: brand/nome.png
+        posicao: inferior-direito
+        tamanho: 0.34
+      - ficheiro: brand/monograma-af.png
+        posicao: inferior-centro   # ou superior-centro
+        tamanho: 0.065
+        # cor: carmim           # descomentar para o AF ficar sempre em carmim
   ferramentas:
     tamanho: 0.22
     duracao: 2.0

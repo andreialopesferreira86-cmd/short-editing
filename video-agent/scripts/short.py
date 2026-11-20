@@ -360,19 +360,18 @@ def build_and_run(take: Path, info: dict, segs, words_remapped, cfg: dict, work:
         v = f'vt{k}'
         n_in += 1
 
-    # logótipo da marca
+    # logótipo da marca (uma ou várias peças: nome, telefone, monograma…)
     M = cfg['logotipos']['marca']
-    logo = ROOT / M['ficheiro'] if M.get('ficheiro') else None
-    if logo and logo.is_file():
-        inputs += ['-loop', '1', '-i', str(logo)]
-        lw = int(W * float(M['tamanho'])) // 2 * 2
-        m = int(W * float(M['margem']))
-        mv = int(H * float(M['margem_vertical'])) if M.get('margem_vertical') is not None else m
-        x = '(W-w)/2' if 'centro' in M['canto'] else (f'W-w-{m}' if 'direito' in M['canto'] else str(m))
-        y = f'H-h-{mv}' if 'inferior' in M['canto'] else str(mv)
-        f.append(f"[{n_in}:v]scale={lw}:-1,format=rgba,colorchannelmixer=aa={float(M['opacidade'])}[lg]")
-        f.append(f'[{v}][lg]overlay={x}:{y}:shortest=1[vl]')
-        v = 'vl'
+    for k, pc in enumerate(M.get('_pecas') or logo_pieces(M)):
+        inputs += ['-loop', '1', '-i', str(ROOT / pc['ficheiro'])]
+        pw, ph, x, y = pc['geo']
+        cor = pc.get('cor_final') or pc.get('cor') or M.get('cor', 'branco')
+        tint = COLORS.get(cor if cor in COLORS else 'branco')
+        tint_f = f',lutrgb=r={tint[0]}:g={tint[1]}:b={tint[2]}' if tint else ''
+        f.append(f"[{n_in}:v]scale={pw}:{ph},format=rgba{tint_f},"
+                 f"colorchannelmixer=aa={float(M['opacidade'])}[lg{k}]")
+        f.append(f'[{v}][lg{k}]overlay={x}:{y}:shortest=1[vl{k}]')
+        v = f'vl{k}'
         n_in += 1
 
     FONTS.mkdir(exist_ok=True)
@@ -405,29 +404,79 @@ def build_and_run(take: Path, info: dict, segs, words_remapped, cfg: dict, work:
     run(cmd, cwd=work)
 
 
-def bottom_brightness(take: Path, info: dict, t0: float = 0.0, t1: float | None = None) -> float:
-    """Brilho médio (0-255) da zona do logótipo (fundo, ao centro) ao longo do vídeo."""
+COLORS = {'branco': None, 'preto': (0, 0, 0), 'carmim': (255, 8, 79), 'azul': (2, 36, 57)}
+
+
+def img_size(path: Path) -> tuple[int, int]:
+    r = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'stream=width,height', '-of', 'csv=p=0',
+                        str(path)], capture_output=True, text=True)
+    w, h = r.stdout.strip().split(',')[:2]
+    return int(w), int(h)
+
+
+def logo_pieces(M: dict) -> list[dict]:
+    """Peças do logótipo com a geometria final (largura, altura, x, y) no ecrã 1080x1920."""
+    if M.get('pecas'):
+        raw = [dict(p) for p in M['pecas']]
+    elif M.get('ficheiro'):
+        raw = [{'ficheiro': M['ficheiro'], 'posicao': M.get('canto', 'inferior-direito'),
+                'tamanho': M.get('tamanho', 0.14)}]
+    else:
+        return []
+    pieces = []
+    for p in raw:
+        f = ROOT / p['ficheiro']
+        if not f.is_file():
+            print(f"⚠️  logótipo não encontrado: {f}", file=sys.stderr)
+            continue
+        iw, ih = img_size(f)
+        pw = int(W * float(p.get('tamanho', 0.2))) // 2 * 2
+        p['_size'] = (pw, max(2, int(round(pw * ih / iw)) // 2 * 2))
+        pieces.append(p)
+    m = int(W * float(M.get('margem', 0.04)))
+    mv = int(H * float(M['margem_vertical'])) if M.get('margem_vertical') is not None else m
+    mt = int(H * float(M.get('margem_topo', 0.05)))
+    # peças de baixo ficam alinhadas pelo centro da mais alta
+    hb = max([p['_size'][1] for p in pieces if 'inferior' in p.get('posicao', '')] or [0])
+    for p in pieces:
+        pw, ph = p['_size']
+        pos = p.get('posicao', 'inferior-direito')
+        x = (W - pw) // 2 if 'centro' in pos else (W - pw - m if 'direito' in pos else m)
+        y = H - mv - hb // 2 - ph // 2 if 'inferior' in pos else mt
+        p['geo'] = (pw, ph, x, y)
+    return pieces
+
+
+def region_brightness(take: Path, info: dict, box: tuple, t0: float = 0.0, t1: float | None = None) -> float:
+    """Brilho médio (0-255) de uma zona do ecrã 1080x1920 ao longo do vídeo."""
+    x, y, w, h = (int(v) // 2 * 2 for v in box)
     t1 = t1 if t1 is not None else info['dur']
     step = max(0.5, (t1 - t0) / 12)
     r = subprocess.run(['ffmpeg', '-v', 'error', '-ss', f'{t0:.2f}', '-t', f'{max(0.5, t1 - t0):.2f}', '-i', str(take),
                         '-vf', f'fps=1/{step:.2f},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},'
-                               f'crop={W // 2}:{H // 6}:{W // 4}:{int(H * 0.72)},signalstats,'
+                               f'crop={max(2, w)}:{max(2, h)}:{x}:{y},signalstats,'
                                'metadata=print:key=lavfi.signalstats.YAVG:file=-',
                         '-f', 'null', '-'], capture_output=True, text=True)
-    vals = [float(x.split('=')[1]) for x in r.stdout.split() if x.startswith('lavfi.signalstats.YAVG=')]
+    vals = [float(v.split('=')[1]) for v in r.stdout.split() if v.startswith('lavfi.signalstats.YAVG=')]
     return sum(vals) / len(vals) if vals else 0.0
 
 
 def auto_logo(cfg: dict, a, take: Path, info: dict, t0=0.0, t1=None) -> None:
-    """Escolhe logótipo branco (vídeo escuro) ou preto (vídeo claro), se houver as duas variantes."""
+    """Cor de cada peça: fixa (cor da peça ou --logo) ou automática — preto em zona clara, branco em zona escura."""
     M = cfg['logotipos']['marca']
-    var = M.get('variantes') or {}
-    if getattr(a, 'logo', None) or not ('branco' in var and 'preto' in var):
-        return
-    y = bottom_brightness(take, info, t0, t1)
-    escolha = 'preto' if y > 130 else 'branco'
-    M['ficheiro'] = var[escolha]
-    print(f'🏷️  logótipo {escolha} (brilho do fundo {y:.0f}/255)')
+    forced = getattr(a, 'logo', None)
+    pieces = logo_pieces(M)
+    for p in pieces:
+        cor = forced or p.get('cor') or M.get('cor', 'auto')
+        if cor == 'auto':
+            pw, ph, x, y = p['geo']
+            pad = 20
+            yv = region_brightness(take, info, (max(0, x - pad), max(0, y - pad),
+                                                min(W - x, pw + 2 * pad), min(H - y, ph + 2 * pad)), t0, t1)
+            cor = 'preto' if yv > 130 else 'branco'
+            print(f"🏷️  {Path(p['ficheiro']).stem}: {cor} (brilho {yv:.0f}/255)")
+        p['cor_final'] = cor
+    M['_pecas'] = pieces
 
 
 def apply_overrides(cfg: dict, a) -> dict:
@@ -436,11 +485,8 @@ def apply_overrides(cfg: dict, a) -> dict:
         if not preset:
             die(f"ritmo '{a.ritmo}' não existe no voice.md (opções: {', '.join(cfg.get('ritmos') or {})})")
         cfg['ritmo'] = merge(cfg['ritmo'], preset)
-    if getattr(a, 'logo', None):
-        var = (cfg['logotipos']['marca'].get('variantes') or {}).get(a.logo)
-        if not var:
-            die(f"variante de logótipo '{a.logo}' não existe no voice.md")
-        cfg['logotipos']['marca']['ficheiro'] = var
+    if getattr(a, 'logo', None) and a.logo not in COLORS:
+        die(f"cor de logótipo '{a.logo}' inválida (opções: {', '.join(COLORS)})")
     if getattr(a, 'cta', None):
         cfg['cta']['texto'] = a.cta
         cfg['cta']['ativo'] = True
@@ -474,7 +520,7 @@ def cmd_render(a) -> None:
     (work / 'meta.json').write_text(json.dumps({
         'cta': cfg['cta']['texto'] if cfg['cta']['ativo'] else None,
         'ritmo': getattr(a, 'ritmo', None) or 'normal',
-        'logo': cfg['logotipos']['marca'].get('ficheiro'),
+        'logo': getattr(a, 'logo', None) or 'auto',
         'duracao_original': round(info['dur'], 2), 'duracao_final': round(total, 2), 'cortes': len(segs),
     }, ensure_ascii=False, indent=1), encoding='utf-8')
     print(f'✅ {out}')
@@ -519,14 +565,14 @@ def main() -> None:
     r = sub.add_parser('render')
     r.add_argument('--slug', required=True)
     r.add_argument('--ritmo', help='nome de um ritmo do voice.md (ex.: rapido, normal)')
-    r.add_argument('--logo', help='variante do logótipo (ex.: branco, preto)')
+    r.add_argument('--logo', help='forçar a cor do logótipo: branco | preto | carmim | azul')
     r.add_argument('--cta', help='texto do CTA só para este vídeo (ex.: uma das cta.opcoes)')
     v = sub.add_parser('preview')
     v.add_argument('take')
     v.add_argument('--t', default=3.0, type=float, help='segundo do vídeo a usar')
     v.add_argument('--text', help='texto de exemplo da legenda')
     v.add_argument('--cta', nargs='?', const='', default=None, help='mostrar o CTA (opcional: texto)')
-    v.add_argument('--logo', help='variante do logótipo (ex.: branco, preto)')
+    v.add_argument('--logo', help='forçar a cor do logótipo: branco | preto | carmim | azul')
     v.add_argument('--tool', help='palavra de uma ferramenta para mostrar o seu logótipo')
     v.add_argument('--out')
     a = p.parse_args()
