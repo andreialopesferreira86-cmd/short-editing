@@ -20,7 +20,13 @@ Não precisa de instalar nada e os vídeos **não são enviados para nenhum serv
 - **Logotipo** num canto (inferior direito por omissão), com tamanho, transparência e margem; fica memorizado para os próximos vídeos
 - **Exportar** em MP4 (Chrome/Edge/Safari recentes) ou WebM, com áudio
 
-## Como usar
+## 🎬 Agente de edição automática (Claude Code)
+
+Na pasta [`video-agent/`](video-agent/README.md): `/voice` (estilo, uma vez) →
+larga o take em `video-agent/takes/` → `/short-editing` → short pronto + `.srt` + texto da publicação.
+Não sabe qual usar? `/editing <o que quer>`.
+
+## Como usar o editor no navegador
 
 1. Abra o `index.html` no navegador (ou ative o GitHub Pages — ver abaixo).
 2. Escolha um vídeo.

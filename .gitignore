@@ -1,0 +1,10 @@
+# Vídeos são grandes demais para o GitHub: ficam só no seu computador
+video-agent/takes/*
+!video-agent/takes/.gitkeep
+video-agent/edits/**/*.mp4
+video-agent/edits/**/*.mov
+video-agent/edits/**/*.png
+video-agent/edits/_preview/
+video-agent/edits/**/filter.txt
+__pycache__/
+.DS_Store
