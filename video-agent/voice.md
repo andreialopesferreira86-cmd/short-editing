@@ -42,9 +42,10 @@ Sempre com o @andreiaferreira_zome por baixo. Sem emojis no vídeo.
 
 ## 7. Logótipos
 Assinatura em duas peças separadas (o monograma AF não entra nos vídeos), como as molduras de canto da marca — simples e
-equilibrada, nunca um logótipo grande por cima do vídeo:
-- **Andreia Ferreira · Consultora Imobiliária** → canto **inferior esquerdo**
-- **Telefone** (963 609 184) **+ logótipo Zome** por baixo → canto **inferior direito**
+equilibrada, nunca um logótipo grande por cima do vídeo. No topo, para não ficar
+tapada pelo nome da conta e pela descrição do Instagram (que ficam em baixo):
+- **Andreia Ferreira · Consultora Imobiliária** → canto **superior esquerdo**
+- **Telefone** (963 609 184) **+ logótipo Zome** por baixo → canto **superior direito**
 
 Cor automática peça a peça: **branco** sobre zonas escuras, **preto** sobre zonas
 claras (`--logo carmim` para forçar uma cor). Sem logótipos de ferramentas por agora.
@@ -135,13 +136,13 @@ logotipos:
     opacidade: 0.9
     margem: 0.05                # distância às laterais (fração da largura)
     margem_vertical: 0.09       # distância ao fundo (fração da altura)
-    margem_topo: 0.06           # para peças no topo
+    margem_topo: 0.08           # distância ao topo — abaixo do título "Reels" e do ícone da câmara
     pecas:
       - ficheiro: brand/nome.png
-        posicao: inferior-esquerdo
+        posicao: superior-esquerdo
         tamanho: 0.34           # fração da largura do ecrã
       - ficheiro: brand/telefone-zome.png   # número + logótipo Zome por baixo (alinhado à direita)
-        posicao: inferior-direito
+        posicao: superior-direito
         tamanho: 0.30
   ferramentas:
     tamanho: 0.22

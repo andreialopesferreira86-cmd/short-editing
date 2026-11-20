@@ -436,13 +436,14 @@ def logo_pieces(M: dict) -> list[dict]:
     m = int(W * float(M.get('margem', 0.04)))
     mv = int(H * float(M['margem_vertical'])) if M.get('margem_vertical') is not None else m
     mt = int(H * float(M.get('margem_topo', 0.05)))
-    # peças de baixo ficam alinhadas pelo centro da mais alta
+    # peças da mesma linha (topo ou fundo) ficam alinhadas pelo centro da mais alta
     hb = max([p['_size'][1] for p in pieces if 'inferior' in p.get('posicao', '')] or [0])
+    ht = max([p['_size'][1] for p in pieces if 'superior' in p.get('posicao', '')] or [0])
     for p in pieces:
         pw, ph = p['_size']
         pos = p.get('posicao', 'inferior-direito')
         x = (W - pw) // 2 if 'centro' in pos else (W - pw - m if 'direito' in pos else m)
-        y = H - mv - hb // 2 - ph // 2 if 'inferior' in pos else mt
+        y = H - mv - hb // 2 - ph // 2 if 'inferior' in pos else mt + ht // 2 - ph // 2
         p['geo'] = (pw, ph, x, y)
     return pieces
 
