@@ -134,7 +134,7 @@ logotipos:
     cor: auto                   # auto | branco | preto | carmim | azul
     opacidade: 0.9
     margem: 0.05                # distância às laterais (fração da largura)
-    margem_vertical: 0.06       # distância ao fundo (fração da altura)
+    margem_vertical: 0.09       # distância ao fundo (fração da altura)
     margem_topo: 0.06           # para peças no topo
     pecas:
       - ficheiro: brand/nome.png
