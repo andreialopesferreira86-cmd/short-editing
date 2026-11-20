@@ -37,9 +37,18 @@ Python (não editar à mão palavra a palavra):
 Resumir à pessoa, em 2–4 linhas, o que foi corrigido e cortado.
 
 ## 4. Montar o vídeo
+Antes de montar, decidir (e dizer numa linha porquê):
+- **Ritmo** (`--ritmo`): ver "5. Ritmo" e `ritmos` no voice.md. Ex.: fala dinâmica,
+  dicas/notícias ou vídeo > 30 s → `rapido`; imóvel, explicação calma → `normal`.
+- **CTA** (`--cta "…"`): escolher de `cta.opcoes` o que encaixa no conteúdo (ver "6." no
+  voice.md). Não repetir o CTA do vídeo anterior: ver `edits/short-*/meta.json` mais recente.
+- **Logótipo**: automático (branco em vídeo escuro, preto em vídeo claro). Só usar
+  `--logo branco|preto|carmim` se a verificação do passo 5 mostrar que não se lê bem.
 ```bash
-python3 video-agent/scripts/short.py render --slug <slug>
+python3 video-agent/scripts/short.py render --slug <slug> --ritmo <normal|rapido> --cta "<texto>"
 ```
+Se o resultado passar dos 30 s com `normal`, repetir com `rapido` e/ou cortar mais
+frases repetidas na transcrição (objetivo da marca: 15–30 s).
 
 ## 5. Verificar antes de entregar
 Extrair 3 imagens (início, meio, fim) e olhar para elas (Read):

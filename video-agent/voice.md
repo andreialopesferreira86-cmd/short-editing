@@ -1,48 +1,74 @@
-# Voice — o meu estilo de vídeo
+# Voice — Andreia Ferreira · Zome Braga
 
-> Este ficheiro define o **visual padrão** e o **tom de voz** de todos os shorts.
-> É criado uma única vez com `/voice` (7 perguntas rápidas, ~15 min) e pode ser
-> editado à mão a qualquer momento. O `/short-editing` lê-o sempre antes de editar.
->
-> ⚠️ Estado: **valores por omissão** — ainda não foi personalizado. Corra `/voice`.
+> Visual padrão e tom de voz de todos os shorts. Personalizado com `/voice` em 2026-11-20.
+> Pode ser editado à mão a qualquer momento. O `/short-editing` lê-o sempre antes de editar.
+> Marca, cores e regras de design vêm também do "brain" (`projects/zome-braga/About.md`).
 
 ## 1. Aparência
-Vídeo vertical 9:16 (1080×1920), a ocupar o ecrã todo. Pequeno zoom alternado
-entre cortes para dar dinamismo.
+Vídeo vertical 9:16 (1080×1920) a ocupar o ecrã todo, com um pequeno zoom alternado
+a cada corte para dar dinamismo. Estilo da marca: **elegante, limpo e luminoso** —
+nada pesado nem escuro.
 
-## 2. Cor
-Legendas brancas com contorno preto; a palavra que está a ser dita fica em amarelo.
+## 2. Cor (cores oficiais da marca)
+- **Electric Carmine** — Pantone 1925 C · CMYK 0/97/50/0 · RGB 255/8/79 · **#FF084F**
+  → palavra que está a ser dita e o @ do Instagram. Só pequenos detalhes, nunca blocos grandes.
+- **Dark Blue** — Pantone 539 C · CMYK 98/78/49/56 · RGB 2/36/57 · **#022439**
+  → contorno das legendas e fundo do cartão do CTA.
+- **Branco** #FFFFFF → texto das legendas.
 
 ## 3. Fontes
-Letra grossa, sem serifa, fácil de ler no telemóvel.
+Montserrat ExtraBold (legendas e CTA). Colocar `Montserrat-ExtraBold.ttf` em
+`video-agent/fonts/` (Google Fonts → Montserrat → Download).
 
 ## 4. Legendas
-3 palavras de cada vez, em maiúsculas, um pouco abaixo do centro, longe dos
-botões do Instagram.
+3 palavras de cada vez, em MAIÚSCULAS, a palavra dita em carmim, um pouco abaixo
+do centro (longe dos botões do Instagram e do logótipo).
 
 ## 5. Ritmo
-Rápido: cortar silêncios, hesitações ("éé", "hum") e frases repetidas.
+Depende da fala de cada vídeo — o `/short-editing` escolhe:
+- **normal**: corta as pausas (> 0,35 s). Para vídeos calmos, imóveis, explicações.
+- **rapido**: corta todas as pausas (> 0,2 s) e acelera 8%. Para dicas, notícias,
+  quando a fala já é dinâmica ou o vídeo passa dos 30 s.
+Objetivo da marca: Reels de **15–30 s**, com gancho nos primeiros 2–3 s.
 
-## 6. Chamada para ação (Instagram)
-Nos últimos segundos aparece: "Segue para mais dicas" + @perfil. (Sem emojis no vídeo — ficam para o texto da publicação.)
+## 6. Chamada para ação (Instagram @andreiaferreira_zome)
+O texto final **varia de vídeo para vídeo** — o `/short-editing` escolhe o que melhor
+encaixa no conteúdo, sem repetir o do vídeo anterior:
+- Dicas / informação → "Guarda para mais tarde" ou "Partilha com quem precisa"
+- Imóvel à venda → "Fala comigo no WhatsApp" ou "Partilha com quem procura casa"
+- Pergunta / opinião → "Comenta QUERO" (ou a palavra-chave do vídeo)
+- Crescer a conta → "Segue para mais dicas"
+Sempre com o @andreiaferreira_zome por baixo. Sem emojis no vídeo.
 
-## 7. Logotipos
-- Marca pessoal: canto inferior direito, discreto.
-- Ferramentas: quando digo o nome de uma ferramenta, o logótipo dela aparece no topo.
+## 7. Logótipos
+- **Só o logótipo da marca, centrado no fundo do vídeo**: horizontal "Andreia Ferreira ·
+  Consultora Imobiliária · 963 609 184 · Zome", pequeno e discreto (assinatura, não
+  carimbo), acima da zona coberta pelos botões do Instagram.
+- **Branco** em vídeos escuros (por omissão), **preto** em vídeos muito claros
+  (`--logo preto`), carmim só se ficar elegante.
+- Sem logótipos de ferramentas por agora.
 
-## Tom de voz (para o texto da publicação)
-- Português de Portugal, tratamento por "tu", próximo e direto.
-- Frases curtas. Primeira linha = gancho forte.
-- Emojis: poucos (1–3), só quando acrescentam.
-- Evitar: jargão técnico sem explicação, "clica no link da bio" repetido.
-- Terminar com uma pergunta ou CTA + 3–5 hashtags relevantes.
+## Tom de voz (texto da publicação)
+- Português de Portugal. Trata por **tu** nas dicas e conteúdos leves; por **você**
+  quando fala com proprietários/compradores sobre um imóvel ou serviço. Nunca misturar
+  na mesma publicação.
+- Próxima, confiante, elegante. Frases curtas. 1.ª linha = gancho forte.
+- **Alguns emojis, poucos** (2–3), só quando acrescentam (🏡 🔑 📍 ✨).
+- Objetivo: partilhas e guardados — terminar com pergunta ou CTA.
+- Antes das hashtags, sempre: `📲 WhatsApp: 963 609 184`
+- 3–5 hashtags, escolhidas destas: #Braga #Zome #ComprarCasa #VenderCasa
+  #ConsultoraImobiliaria #CreditoHabitacao #PrimeiraCasa #ImobiliarioBraga
+  #DicasImobiliarias #InvestimentoImobiliario #AvaliacaoGratuita #Arrendamento
 
 ## Glossário (corrigir sempre na transcrição)
-Palavras que o reconhecimento de voz costuma errar (nomes, marcas, ferramentas):
-- Claude, ChatGPT, Canva, CapCut, Instagram, Reels
+Andreia Ferreira, Zome, Braga, Guimarães, Idealista, Imovirtual, Euribor, IMT, IMI,
+IMT Jovem, T0/T1/T2/T3/T4, CPCV, escritura, crédito habitação, garantia pública,
+moradia, apartamento, m² (metros quadrados)
 
 ## Palavras a cortar
-Hesitações e bengalas a remover do vídeo: é, éé, hum, hmm, tipo, pronto, ok então
+Hesitações: hum, hmm, ah, ahh, éé, eh, hã, ããã.
+Também cortar falsos arranques e frases repetidas (fica a última versão completa).
+Não cortar "é" quando é o verbo ser ("é muito fácil").
 
 ---
 
@@ -53,56 +79,69 @@ Não mude os nomes das chaves. Cores em `#RRGGBB`. Caminhos relativos a `video-a
 ```yaml
 aparencia:
   enquadramento: preencher      # preencher | desfocado
-  zoom_alternado: 1.08          # 1 = desligado; 1.08 = zoom de 8% em cortes alternados
+  zoom_alternado: 1.08          # 1 = desligado
   fps: 30
 
 cores:
   texto: "#FFFFFF"
-  destaque: "#FFD400"           # palavra a ser dita
-  contorno: "#000000"
-  fundo_cta: "#FF3D6E"
+  destaque: "#FF084F"           # Electric Carmine
+  contorno: "#022439"           # Dark Blue
+  fundo_cta: "#022439"          # Dark Blue
 
 fontes:
-  legendas: "Montserrat ExtraBold"   # ponha o .ttf em video-agent/fonts/
+  legendas: "Montserrat ExtraBold"
   cta: "Montserrat ExtraBold"
 
 legendas:
-  palavras: 3                   # palavras por legenda
+  palavras: 3
   maiusculas: true
   destacar_palavra: true
-  tamanho: 86
+  tamanho: 84
   contorno: 6
   estilo: contorno              # contorno | caixa
-  posicao: 0.68                 # 0 = topo, 1 = fundo (0.68 = abaixo do centro)
+  posicao: 0.66                 # 0 = topo, 1 = fundo
 
-ritmo:
+ritmo:                          # por omissão (= normal)
   cortar_silencios: true
-  silencio_max: 0.35            # pausas maiores que isto (s) são cortadas
-  margem: 0.08                  # folga antes/depois de cada fala (s)
-  velocidade: 1.0               # 1.1 = 10% mais rápido
+  silencio_max: 0.35
+  margem: 0.08
+  velocidade: 1.0
+
+ritmos:                         # escolhidos por vídeo: render --ritmo rapido
+  normal: {silencio_max: 0.35, velocidade: 1.0}
+  rapido: {silencio_max: 0.2, margem: 0.06, velocidade: 1.08}
 
 som:
-  normalizar: true              # volume uniforme (-14 LUFS, padrão das redes)
+  normalizar: true
 
 cta:
   ativo: true
-  texto: "Segue para mais dicas"   # sem emojis: o vídeo não os mostra
-  instagram: "@o_teu_perfil"
-  duracao: 2.5                  # segundos finais
-  posicao: 0.42
+  texto: "Guarda para mais tarde"   # por omissão; o /short-editing escolhe por vídeo (--cta)
+  opcoes:
+    - "Guarda para mais tarde"
+    - "Partilha com quem precisa"
+    - "Partilha com quem procura casa"
+    - "Fala comigo no WhatsApp"
+    - "Comenta QUERO"
+    - "Segue para mais dicas"
+  instagram: "@andreiaferreira_zome"
+  duracao: 2.5
+  posicao: 0.40
 
 logotipos:
   marca:
-    ficheiro: brand/logo.png    # deixe vazio se não tiver
-    canto: inferior-direito     # inferior-direito | inferior-esquerdo | superior-direito | superior-esquerdo
-    tamanho: 0.14               # fração da largura
-    opacidade: 0.9
+    ficheiro: brand/logo-branco.png
+    variantes:                  # render --logo preto
+      branco: brand/logo-branco.png
+      preto: brand/logo-preto.png
+      carmim: brand/logo-carmim.png
+    canto: inferior-centro      # inferior-centro | inferior-direito | inferior-esquerdo | superior-...
+    tamanho: 0.34               # fração da largura
+    opacidade: 0.85
     margem: 0.04
-  ferramentas:                  # aparecem no topo quando a palavra é dita
+    margem_vertical: 0.15       # distância ao fundo (fração da altura) — acima dos botões do Instagram
+  ferramentas:
     tamanho: 0.22
     duracao: 2.0
     lista: []
-    # - nome: Canva
-    #   ficheiro: brand/tools/canva.png
-    #   palavras: [canva]
 ```

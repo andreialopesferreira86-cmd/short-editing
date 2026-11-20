@@ -34,9 +34,11 @@ DEFAULTS = {
                  'contorno': 6, 'estilo': 'contorno', 'posicao': 0.68},
     'ritmo': {'cortar_silencios': True, 'silencio_max': 0.35, 'margem': 0.08, 'velocidade': 1.0},
     'som': {'normalizar': True},
-    'cta': {'ativo': False, 'texto': '', 'instagram': '', 'duracao': 2.5, 'posicao': 0.42},
+    'cta': {'ativo': False, 'texto': '', 'opcoes': [], 'instagram': '', 'duracao': 2.5, 'posicao': 0.42},
+    'ritmos': {},
     'logotipos': {
-        'marca': {'ficheiro': '', 'canto': 'inferior-direito', 'tamanho': 0.14, 'opacidade': 0.9, 'margem': 0.04},
+        'marca': {'ficheiro': '', 'canto': 'inferior-direito', 'tamanho': 0.14, 'opacidade': 0.9, 'margem': 0.04,
+                  'margem_vertical': None},
         'ferramentas': {'tamanho': 0.22, 'duracao': 2.0, 'lista': []},
     },
 }
@@ -264,7 +266,7 @@ def build_ass(groups, times, total: float, cfg: dict) -> str:
         y = int(H * float(cta['posicao']))
         txt = ass_escape(cta['texto'])
         if cta.get('instagram'):
-            txt += f"\\N{{\\fs{int(L['tamanho'] * 0.7)}}}{ass_escape(cta['instagram'])}"
+            txt += f"\\N{{\\fs{int(L['tamanho'] * 0.7)}\\c{hl}&}}{ass_escape(cta['instagram'])}"
         ev.append(f"Dialogue: 1,{ass_time(max(0, total - float(cta['duracao'])))},{ass_time(total + 1)},CTA,,0,0,0,,"
                   f"{{\\pos({W // 2},{y})\\fad(200,0)\\t(0,180,\\fscx108\\fscy108)\\t(180,320,\\fscx100\\fscy100)}}{txt}")
     return ('[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 0\n'
@@ -365,8 +367,9 @@ def build_and_run(take: Path, info: dict, segs, words_remapped, cfg: dict, work:
         inputs += ['-loop', '1', '-i', str(logo)]
         lw = int(W * float(M['tamanho'])) // 2 * 2
         m = int(W * float(M['margem']))
-        x = f'W-w-{m}' if 'direito' in M['canto'] else str(m)
-        y = f'H-h-{m}' if 'inferior' in M['canto'] else str(m)
+        mv = int(H * float(M['margem_vertical'])) if M.get('margem_vertical') is not None else m
+        x = '(W-w)/2' if 'centro' in M['canto'] else (f'W-w-{m}' if 'direito' in M['canto'] else str(m))
+        y = f'H-h-{mv}' if 'inferior' in M['canto'] else str(mv)
         f.append(f"[{n_in}:v]scale={lw}:-1,format=rgba,colorchannelmixer=aa={float(M['opacidade'])}[lg]")
         f.append(f'[{v}][lg]overlay={x}:{y}:shortest=1[vl]')
         v = 'vl'
@@ -402,8 +405,50 @@ def build_and_run(take: Path, info: dict, segs, words_remapped, cfg: dict, work:
     run(cmd, cwd=work)
 
 
+def bottom_brightness(take: Path, info: dict, t0: float = 0.0, t1: float | None = None) -> float:
+    """Brilho médio (0-255) da zona do logótipo (fundo, ao centro) ao longo do vídeo."""
+    t1 = t1 if t1 is not None else info['dur']
+    step = max(0.5, (t1 - t0) / 12)
+    r = subprocess.run(['ffmpeg', '-v', 'error', '-ss', f'{t0:.2f}', '-t', f'{max(0.5, t1 - t0):.2f}', '-i', str(take),
+                        '-vf', f'fps=1/{step:.2f},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},'
+                               f'crop={W // 2}:{H // 6}:{W // 4}:{int(H * 0.72)},signalstats,'
+                               'metadata=print:key=lavfi.signalstats.YAVG:file=-',
+                        '-f', 'null', '-'], capture_output=True, text=True)
+    vals = [float(x.split('=')[1]) for x in r.stdout.split() if x.startswith('lavfi.signalstats.YAVG=')]
+    return sum(vals) / len(vals) if vals else 0.0
+
+
+def auto_logo(cfg: dict, a, take: Path, info: dict, t0=0.0, t1=None) -> None:
+    """Escolhe logótipo branco (vídeo escuro) ou preto (vídeo claro), se houver as duas variantes."""
+    M = cfg['logotipos']['marca']
+    var = M.get('variantes') or {}
+    if getattr(a, 'logo', None) or not ('branco' in var and 'preto' in var):
+        return
+    y = bottom_brightness(take, info, t0, t1)
+    escolha = 'preto' if y > 130 else 'branco'
+    M['ficheiro'] = var[escolha]
+    print(f'🏷️  logótipo {escolha} (brilho do fundo {y:.0f}/255)')
+
+
+def apply_overrides(cfg: dict, a) -> dict:
+    if getattr(a, 'ritmo', None):
+        preset = (cfg.get('ritmos') or {}).get(a.ritmo)
+        if not preset:
+            die(f"ritmo '{a.ritmo}' não existe no voice.md (opções: {', '.join(cfg.get('ritmos') or {})})")
+        cfg['ritmo'] = merge(cfg['ritmo'], preset)
+    if getattr(a, 'logo', None):
+        var = (cfg['logotipos']['marca'].get('variantes') or {}).get(a.logo)
+        if not var:
+            die(f"variante de logótipo '{a.logo}' não existe no voice.md")
+        cfg['logotipos']['marca']['ficheiro'] = var
+    if getattr(a, 'cta', None):
+        cfg['cta']['texto'] = a.cta
+        cfg['cta']['ativo'] = True
+    return cfg
+
+
 def cmd_render(a) -> None:
-    cfg = load_voice()
+    cfg = apply_overrides(load_voice(), a)
     work = EDITS / f'short-{a.slug}'
     tj = work / 'transcript.json'
     if not tj.exists():
@@ -413,6 +458,7 @@ def cmd_render(a) -> None:
     if not take.exists():
         die(f'o take original não existe: {take}')
     info = probe(take)
+    auto_logo(cfg, a, take, info)
     segs = plan_segments(data['words'], info['dur'], cfg)
     speed = float(cfg['ritmo']['velocidade'] or 1.0)
     words = remap_words(data['words'], segs, speed)
@@ -420,19 +466,27 @@ def cmd_render(a) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     out = out_dir / f'short-{a.slug}.mp4'
     total = sum(e - s for s, e in segs) / speed
+    print(f"🎬 ritmo: silêncio>{cfg['ritmo']['silencio_max']}s, velocidade {cfg['ritmo']['velocidade']} · CTA: {cfg['cta']['texto'] if cfg['cta']['ativo'] else '—'}")
     print(f'🎬 {len(segs)} cortes · {info["dur"]:.1f}s → {total:.1f}s')
     build_and_run(take, info, segs, words, cfg, work, out)
     shutil.copy(work / 'captions.srt', out_dir / f'short-{a.slug}.srt')
     (work / 'cortes.json').write_text(json.dumps(segs), encoding='utf-8')
+    (work / 'meta.json').write_text(json.dumps({
+        'cta': cfg['cta']['texto'] if cfg['cta']['ativo'] else None,
+        'ritmo': getattr(a, 'ritmo', None) or 'normal',
+        'logo': cfg['logotipos']['marca'].get('ficheiro'),
+        'duracao_original': round(info['dur'], 2), 'duracao_final': round(total, 2), 'cortes': len(segs),
+    }, ensure_ascii=False, indent=1), encoding='utf-8')
     print(f'✅ {out}')
     print(f'✅ {out_dir / f"short-{a.slug}.srt"}')
 
 
 def cmd_preview(a) -> None:
-    cfg = load_voice()
+    cfg = apply_overrides(load_voice(), a)
     take = Path(a.take).resolve()
     info = probe(take)
     t = min(float(a.t), max(0.0, info['dur'] - 0.2))
+    auto_logo(cfg, a, take, info, t, t + 1.0)
     work = EDITS / '_preview'
     work.mkdir(parents=True, exist_ok=True)
     sample = (a.text or 'Assim ficam as tuas legendas').split()
@@ -442,8 +496,8 @@ def cmd_preview(a) -> None:
     # primeira palavra "a ser dita" para mostrar o destaque
     for i, w in enumerate(words[:n]):
         w['s'] = w['e'] = 0.0 if i == 0 else 0.45
-    cfg['cta']['ativo'] = bool(a.cta)
-    if a.cta:
+    cfg['cta']['ativo'] = a.cta is not None
+    if a.cta is not None:
         cfg['cta']['duracao'] = 10
         words = []
     if a.tool:
@@ -464,11 +518,15 @@ def main() -> None:
     t.add_argument('--language', default='pt')
     r = sub.add_parser('render')
     r.add_argument('--slug', required=True)
+    r.add_argument('--ritmo', help='nome de um ritmo do voice.md (ex.: rapido, normal)')
+    r.add_argument('--logo', help='variante do logótipo (ex.: branco, preto)')
+    r.add_argument('--cta', help='texto do CTA só para este vídeo (ex.: uma das cta.opcoes)')
     v = sub.add_parser('preview')
     v.add_argument('take')
     v.add_argument('--t', default=3.0, type=float, help='segundo do vídeo a usar')
     v.add_argument('--text', help='texto de exemplo da legenda')
-    v.add_argument('--cta', action='store_true', help='mostrar o ecrã da chamada para ação')
+    v.add_argument('--cta', nargs='?', const='', default=None, help='mostrar o CTA (opcional: texto)')
+    v.add_argument('--logo', help='variante do logótipo (ex.: branco, preto)')
     v.add_argument('--tool', help='palavra de uma ferramenta para mostrar o seu logótipo')
     v.add_argument('--out')
     a = p.parse_args()
