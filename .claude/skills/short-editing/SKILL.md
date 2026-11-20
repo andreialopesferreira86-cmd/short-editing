@@ -47,6 +47,9 @@ Antes de montar, decidir (e dizer numa linha porquê):
 ```bash
 python3 video-agent/scripts/short.py render --slug <slug> --ritmo <normal|rapido> --cta "<texto>"
 ```
+Música: a do voice.md (`musica.ficheiro`), baixa e com ducking. Os cortes procuram
+o silêncio real do áudio e só cortam onde há silêncio — não reduzir `margem` abaixo de 0.08.
+
 Se o resultado passar dos 30 s com `normal`, repetir com `rapido` e/ou cortar mais
 frases repetidas na transcrição (objetivo da marca: 15–30 s).
 

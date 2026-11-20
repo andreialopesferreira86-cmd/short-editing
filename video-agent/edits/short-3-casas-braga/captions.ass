@@ -12,183 +12,183 @@ Style: CTA,Montserrat ExtraBold,75,&H00FFFFFF,&H00FFFFFF,&H00392402,&H00392402,-
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.06,0:00:00.33,Cap,,0,0,0,,{\c&H004F08FF&}O{\r} QUE É
-Dialogue: 0,0:00:00.33,0:00:00.46,Cap,,0,0,0,,O {\c&H004F08FF&}QUE{\r} É
-Dialogue: 0,0:00:00.46,0:00:00.56,Cap,,0,0,0,,O QUE {\c&H004F08FF&}É{\r}
-Dialogue: 0,0:00:00.56,0:00:00.57,Cap,,0,0,0,,{\c&H004F08FF&}QUE{\r} SE COMPRA
-Dialogue: 0,0:00:00.57,0:00:00.74,Cap,,0,0,0,,QUE {\c&H004F08FF&}SE{\r} COMPRA
-Dialogue: 0,0:00:00.74,0:00:01.11,Cap,,0,0,0,,QUE SE {\c&H004F08FF&}COMPRA{\r}
-Dialogue: 0,0:00:01.11,0:00:01.33,Cap,,0,0,0,,{\c&H004F08FF&}COM{\r} MENOS DE
-Dialogue: 0,0:00:01.33,0:00:01.67,Cap,,0,0,0,,COM {\c&H004F08FF&}MENOS{\r} DE
-Dialogue: 0,0:00:01.67,0:00:01.87,Cap,,0,0,0,,COM MENOS {\c&H004F08FF&}DE{\r}
-Dialogue: 0,0:00:01.87,0:00:02.91,Cap,,0,0,0,,{\c&H004F08FF&}279{\r} MIL EUROS
-Dialogue: 0,0:00:02.91,0:00:03.17,Cap,,0,0,0,,279 {\c&H004F08FF&}MIL{\r} EUROS
-Dialogue: 0,0:00:03.17,0:00:03.44,Cap,,0,0,0,,279 MIL {\c&H004F08FF&}EUROS{\r}
-Dialogue: 0,0:00:03.44,0:00:03.65,Cap,,0,0,0,,{\c&H004F08FF&}NO{\r} DISTRITO DE BRAGA?
-Dialogue: 0,0:00:03.65,0:00:03.93,Cap,,0,0,0,,NO {\c&H004F08FF&}DISTRITO DE{\r} BRAGA?
-Dialogue: 0,0:00:03.93,0:00:04.46,Cap,,0,0,0,,NO DISTRITO DE {\c&H004F08FF&}BRAGA?{\r}
-Dialogue: 0,0:00:04.46,0:00:04.54,Cap,,0,0,0,,{\c&H004F08FF&}EU{\r} ESCOLHI TRÊS
-Dialogue: 0,0:00:04.54,0:00:04.72,Cap,,0,0,0,,EU {\c&H004F08FF&}ESCOLHI{\r} TRÊS
-Dialogue: 0,0:00:04.72,0:00:04.94,Cap,,0,0,0,,EU ESCOLHI {\c&H004F08FF&}TRÊS{\r}
-Dialogue: 0,0:00:04.94,0:00:05.24,Cap,,0,0,0,,{\c&H004F08FF&}CASAS{\r} COM CERCA
-Dialogue: 0,0:00:05.24,0:00:05.44,Cap,,0,0,0,,CASAS {\c&H004F08FF&}COM{\r} CERCA
-Dialogue: 0,0:00:05.44,0:00:05.65,Cap,,0,0,0,,CASAS COM {\c&H004F08FF&}CERCA{\r}
-Dialogue: 0,0:00:05.65,0:00:05.94,Cap,,0,0,0,,{\c&H004F08FF&}DE{\r} 25 MIL
-Dialogue: 0,0:00:05.94,0:00:06.30,Cap,,0,0,0,,DE {\c&H004F08FF&}25{\r} MIL
-Dialogue: 0,0:00:06.30,0:00:06.52,Cap,,0,0,0,,DE 25 {\c&H004F08FF&}MIL{\r}
-Dialogue: 0,0:00:06.52,0:00:06.70,Cap,,0,0,0,,{\c&H004F08FF&}EUROS{\r} DE DIFERENÇA
-Dialogue: 0,0:00:06.70,0:00:06.80,Cap,,0,0,0,,EUROS {\c&H004F08FF&}DE{\r} DIFERENÇA
-Dialogue: 0,0:00:06.80,0:00:07.13,Cap,,0,0,0,,EUROS DE {\c&H004F08FF&}DIFERENÇA{\r}
-Dialogue: 0,0:00:07.13,0:00:07.61,Cap,,0,0,0,,{\c&H004F08FF&}ENTRE{\r} CADA UMA.
-Dialogue: 0,0:00:07.61,0:00:07.91,Cap,,0,0,0,,ENTRE {\c&H004F08FF&}CADA{\r} UMA.
-Dialogue: 0,0:00:07.91,0:00:09.15,Cap,,0,0,0,,ENTRE CADA {\c&H004F08FF&}UMA.{\r}
-Dialogue: 0,0:00:09.15,0:00:09.72,Cap,,0,0,0,,PRIMEIRO,
-Dialogue: 0,0:00:09.72,0:00:09.93,Cap,,0,0,0,,{\c&H004F08FF&}UM{\r} T2+1
-Dialogue: 0,0:00:09.93,0:00:10.33,Cap,,0,0,0,,UM {\c&H004F08FF&}T2+1{\r}
-Dialogue: 0,0:00:10.78,0:00:10.93,Cap,,0,0,0,,{\c&H004F08FF&}NAS{\r} CALDAS DAS
-Dialogue: 0,0:00:10.93,0:00:11.24,Cap,,0,0,0,,NAS {\c&H004F08FF&}CALDAS{\r} DAS
-Dialogue: 0,0:00:11.24,0:00:11.39,Cap,,0,0,0,,NAS CALDAS {\c&H004F08FF&}DAS{\r}
-Dialogue: 0,0:00:11.39,0:00:11.85,Cap,,0,0,0,,{\c&H004F08FF&}TAIPAS,{\r} EM GUIMARÃES,
-Dialogue: 0,0:00:11.85,0:00:11.91,Cap,,0,0,0,,TAIPAS, {\c&H004F08FF&}EM{\r} GUIMARÃES,
-Dialogue: 0,0:00:11.91,0:00:12.48,Cap,,0,0,0,,TAIPAS, EM {\c&H004F08FF&}GUIMARÃES,{\r}
-Dialogue: 0,0:00:12.48,0:00:12.72,Cap,,0,0,0,,{\c&H004F08FF&}POR{\r} 225 MIL
-Dialogue: 0,0:00:12.72,0:00:13.56,Cap,,0,0,0,,POR {\c&H004F08FF&}225{\r} MIL
-Dialogue: 0,0:00:13.56,0:00:13.72,Cap,,0,0,0,,POR 225 {\c&H004F08FF&}MIL{\r}
-Dialogue: 0,0:00:13.72,0:00:13.96,Cap,,0,0,0,,EUROS.
-Dialogue: 0,0:00:13.96,0:00:14.07,Cap,,0,0,0,,{\c&H004F08FF&}ELE{\r} TEM 85
-Dialogue: 0,0:00:14.07,0:00:14.28,Cap,,0,0,0,,ELE {\c&H004F08FF&}TEM{\r} 85
-Dialogue: 0,0:00:14.28,0:00:14.74,Cap,,0,0,0,,ELE TEM {\c&H004F08FF&}85{\r}
-Dialogue: 0,0:00:14.74,0:00:14.98,Cap,,0,0,0,,{\c&H004F08FF&}METROS{\r} QUADRADOS, ESTÁ
-Dialogue: 0,0:00:14.98,0:00:15.46,Cap,,0,0,0,,METROS {\c&H004F08FF&}QUADRADOS,{\r} ESTÁ
-Dialogue: 0,0:00:15.46,0:00:15.56,Cap,,0,0,0,,METROS QUADRADOS, {\c&H004F08FF&}ESTÁ{\r}
-Dialogue: 0,0:00:15.56,0:00:15.96,Cap,,0,0,0,,{\c&H004F08FF&}TOTALMENTE{\r} REMODELADO E
-Dialogue: 0,0:00:15.96,0:00:16.69,Cap,,0,0,0,,TOTALMENTE {\c&H004F08FF&}REMODELADO{\r} E
-Dialogue: 0,0:00:16.69,0:00:17.15,Cap,,0,0,0,,TOTALMENTE REMODELADO {\c&H004F08FF&}E{\r}
-Dialogue: 0,0:00:17.15,0:00:17.52,Cap,,0,0,0,,{\c&H004F08FF&}VENDE-SE{\r} MOBILADO E
-Dialogue: 0,0:00:17.52,0:00:18.06,Cap,,0,0,0,,VENDE-SE {\c&H004F08FF&}MOBILADO{\r} E
-Dialogue: 0,0:00:18.06,0:00:18.57,Cap,,0,0,0,,VENDE-SE MOBILADO {\c&H004F08FF&}E{\r}
-Dialogue: 0,0:00:18.57,0:00:19.31,Cap,,0,0,0,,EQUIPADO.
-Dialogue: 0,0:00:19.31,0:00:19.89,Cap,,0,0,0,,AGORA,
-Dialogue: 0,0:00:19.89,0:00:19.94,Cap,,0,0,0,,{\c&H004F08FF&}UM{\r} T1 NA
-Dialogue: 0,0:00:19.94,0:00:20.33,Cap,,0,0,0,,UM {\c&H004F08FF&}T1{\r} NA
-Dialogue: 0,0:00:20.33,0:00:20.65,Cap,,0,0,0,,UM T1 {\c&H004F08FF&}NA{\r}
-Dialogue: 0,0:00:20.65,0:00:20.85,Cap,,0,0,0,,{\c&H004F08FF&}ENTRADA{\r} DO CENTRO
-Dialogue: 0,0:00:20.85,0:00:21.11,Cap,,0,0,0,,ENTRADA {\c&H004F08FF&}DO{\r} CENTRO
-Dialogue: 0,0:00:21.11,0:00:21.33,Cap,,0,0,0,,ENTRADA DO {\c&H004F08FF&}CENTRO{\r}
-Dialogue: 0,0:00:21.33,0:00:21.96,Cap,,0,0,0,,{\c&H004F08FF&}HISTÓRICO{\r} DE BRAGA
-Dialogue: 0,0:00:21.96,0:00:22.17,Cap,,0,0,0,,HISTÓRICO {\c&H004F08FF&}DE{\r} BRAGA
-Dialogue: 0,0:00:22.17,0:00:22.57,Cap,,0,0,0,,HISTÓRICO DE {\c&H004F08FF&}BRAGA{\r}
-Dialogue: 0,0:00:22.57,0:00:22.78,Cap,,0,0,0,,{\c&H004F08FF&}POR{\r} 249 MIL
-Dialogue: 0,0:00:22.78,0:00:23.70,Cap,,0,0,0,,POR {\c&H004F08FF&}249{\r} MIL
-Dialogue: 0,0:00:23.70,0:00:23.91,Cap,,0,0,0,,POR 249 {\c&H004F08FF&}MIL{\r}
-Dialogue: 0,0:00:23.91,0:00:24.13,Cap,,0,0,0,,EUROS.
-Dialogue: 0,0:00:24.13,0:00:24.28,Cap,,0,0,0,,{\c&H004F08FF&}TEM{\r} 40 METROS
-Dialogue: 0,0:00:24.28,0:00:24.46,Cap,,0,0,0,,TEM {\c&H004F08FF&}40{\r} METROS
-Dialogue: 0,0:00:24.46,0:00:24.69,Cap,,0,0,0,,TEM 40 {\c&H004F08FF&}METROS{\r}
-Dialogue: 0,0:00:24.69,0:00:25.26,Cap,,0,0,0,,{\c&H004F08FF&}QUADRADOS,{\r} MAS É
-Dialogue: 0,0:00:25.26,0:00:26.26,Cap,,0,0,0,,QUADRADOS, {\c&H004F08FF&}MAS{\r} É
-Dialogue: 0,0:00:26.26,0:00:26.35,Cap,,0,0,0,,QUADRADOS, MAS {\c&H004F08FF&}É{\r}
-Dialogue: 0,0:00:26.35,0:00:26.43,Cap,,0,0,0,,{\c&H004F08FF&}UM{\r} APARTAMENTO NOVO,
-Dialogue: 0,0:00:26.43,0:00:26.76,Cap,,0,0,0,,UM {\c&H004F08FF&}APARTAMENTO{\r} NOVO,
-Dialogue: 0,0:00:26.76,0:00:27.19,Cap,,0,0,0,,UM APARTAMENTO {\c&H004F08FF&}NOVO,{\r}
-Dialogue: 0,0:00:27.19,0:00:27.31,Cap,,0,0,0,,{\c&H004F08FF&}COM{\r} ELEVADOR,
-Dialogue: 0,0:00:27.31,0:00:27.89,Cap,,0,0,0,,COM {\c&H004F08FF&}ELEVADOR,{\r}
-Dialogue: 0,0:00:27.89,0:00:28.43,Cap,,0,0,0,,{\c&H004F08FF&}AR-CONDICIONADO{\r} E COZINHA
-Dialogue: 0,0:00:28.43,0:00:28.69,Cap,,0,0,0,,AR-CONDICIONADO {\c&H004F08FF&}E{\r} COZINHA
-Dialogue: 0,0:00:28.69,0:00:29.11,Cap,,0,0,0,,AR-CONDICIONADO E {\c&H004F08FF&}COZINHA{\r}
-Dialogue: 0,0:00:29.11,0:00:29.78,Cap,,0,0,0,,EQUIPADA.
-Dialogue: 0,0:00:29.78,0:00:30.02,Cap,,0,0,0,,{\c&H004F08FF&}ESTÁ{\r} EM CONSTRUÇÃO
-Dialogue: 0,0:00:30.02,0:00:30.13,Cap,,0,0,0,,ESTÁ {\c&H004F08FF&}EM{\r} CONSTRUÇÃO
-Dialogue: 0,0:00:30.13,0:00:30.63,Cap,,0,0,0,,ESTÁ EM {\c&H004F08FF&}CONSTRUÇÃO{\r}
-Dialogue: 0,0:00:30.63,0:00:30.81,Cap,,0,0,0,,{\c&H004F08FF&}E{\r} COM ENTREGA
-Dialogue: 0,0:00:30.81,0:00:30.91,Cap,,0,0,0,,E {\c&H004F08FF&}COM{\r} ENTREGA
-Dialogue: 0,0:00:30.91,0:00:31.37,Cap,,0,0,0,,E COM {\c&H004F08FF&}ENTREGA{\r}
-Dialogue: 0,0:00:31.37,0:00:31.65,Cap,,0,0,0,,{\c&H004F08FF&}EM{\r} 24 MESES.
-Dialogue: 0,0:00:31.65,0:00:32.07,Cap,,0,0,0,,EM {\c&H004F08FF&}24{\r} MESES.
-Dialogue: 0,0:00:32.07,0:00:32.61,Cap,,0,0,0,,EM 24 {\c&H004F08FF&}MESES.{\r}
-Dialogue: 0,0:00:32.61,0:00:32.74,Cap,,0,0,0,,{\c&H004F08FF&}E{\r} POR FIM,
-Dialogue: 0,0:00:32.74,0:00:32.89,Cap,,0,0,0,,E {\c&H004F08FF&}POR{\r} FIM,
-Dialogue: 0,0:00:32.89,0:00:33.22,Cap,,0,0,0,,E POR {\c&H004F08FF&}FIM,{\r}
-Dialogue: 0,0:00:33.22,0:00:33.28,Cap,,0,0,0,,{\c&H004F08FF&}UM{\r} T3, EM
-Dialogue: 0,0:00:33.28,0:00:33.87,Cap,,0,0,0,,UM {\c&H004F08FF&}T3,{\r} EM
-Dialogue: 0,0:00:33.87,0:00:33.94,Cap,,0,0,0,,UM T3, {\c&H004F08FF&}EM{\r}
-Dialogue: 0,0:00:33.94,0:00:34.52,Cap,,0,0,0,,{\c&H004F08FF&}LOMAR,{\r} PRONTO A
-Dialogue: 0,0:00:34.52,0:00:34.70,Cap,,0,0,0,,LOMAR, {\c&H004F08FF&}PRONTO{\r} A
-Dialogue: 0,0:00:34.70,0:00:34.91,Cap,,0,0,0,,LOMAR, PRONTO {\c&H004F08FF&}A{\r}
-Dialogue: 0,0:00:34.91,0:00:35.17,Cap,,0,0,0,,{\c&H004F08FF&}HABITAR{\r} POR 274
-Dialogue: 0,0:00:35.17,0:00:35.76,Cap,,0,0,0,,HABITAR {\c&H004F08FF&}POR{\r} 274
-Dialogue: 0,0:00:35.76,0:00:36.65,Cap,,0,0,0,,HABITAR POR {\c&H004F08FF&}274{\r}
-Dialogue: 0,0:00:36.65,0:00:36.89,Cap,,0,0,0,,{\c&H004F08FF&}MIL{\r} EUROS.
-Dialogue: 0,0:00:36.89,0:00:37.19,Cap,,0,0,0,,MIL {\c&H004F08FF&}EUROS.{\r}
-Dialogue: 0,0:00:37.19,0:00:37.30,Cap,,0,0,0,,{\c&H004F08FF&}SÃO{\r} 138 METROS
-Dialogue: 0,0:00:37.30,0:00:38.31,Cap,,0,0,0,,SÃO {\c&H004F08FF&}138{\r} METROS
-Dialogue: 0,0:00:38.31,0:00:38.63,Cap,,0,0,0,,SÃO 138 {\c&H004F08FF&}METROS{\r}
-Dialogue: 0,0:00:38.63,0:00:39.11,Cap,,0,0,0,,{\c&H004F08FF&}QUADRADOS{\r} COM SUÍTE,
-Dialogue: 0,0:00:39.11,0:00:39.39,Cap,,0,0,0,,QUADRADOS {\c&H004F08FF&}COM{\r} SUÍTE,
-Dialogue: 0,0:00:39.39,0:00:39.81,Cap,,0,0,0,,QUADRADOS COM {\c&H004F08FF&}SUÍTE,{\r}
-Dialogue: 0,0:00:39.81,0:00:40.35,Cap,,0,0,0,,{\c&H004F08FF&}VARANDAS,{\r} GARAGEM FECHADA.
-Dialogue: 0,0:00:40.35,0:00:40.83,Cap,,0,0,0,,VARANDAS, {\c&H004F08FF&}GARAGEM{\r} FECHADA.
-Dialogue: 0,0:00:40.83,0:00:41.26,Cap,,0,0,0,,VARANDAS, GARAGEM {\c&H004F08FF&}FECHADA.{\r}
-Dialogue: 0,0:00:41.26,0:00:41.70,Cap,,0,0,0,,{\c&H004F08FF&}QUAL{\r} É A
-Dialogue: 0,0:00:41.70,0:00:41.78,Cap,,0,0,0,,QUAL {\c&H004F08FF&}É{\r} A
-Dialogue: 0,0:00:41.78,0:00:42.11,Cap,,0,0,0,,DIFERENÇA?
-Dialogue: 0,0:00:42.11,0:00:42.17,Cap,,0,0,0,,{\c&H004F08FF&}O{\r} T1 CUSTA
-Dialogue: 0,0:00:42.17,0:00:42.35,Cap,,0,0,0,,O {\c&H004F08FF&}T1{\r} CUSTA
-Dialogue: 0,0:00:42.35,0:00:42.70,Cap,,0,0,0,,O T1 {\c&H004F08FF&}CUSTA{\r}
-Dialogue: 0,0:00:42.70,0:00:42.94,Cap,,0,0,0,,{\c&H004F08FF&}MAIS{\r} DO QUE
-Dialogue: 0,0:00:42.94,0:00:43.09,Cap,,0,0,0,,MAIS {\c&H004F08FF&}DO{\r} QUE
-Dialogue: 0,0:00:43.09,0:00:43.17,Cap,,0,0,0,,MAIS DO {\c&H004F08FF&}QUE{\r}
-Dialogue: 0,0:00:43.17,0:00:43.20,Cap,,0,0,0,,{\c&H004F08FF&}O{\r} T2
-Dialogue: 0,0:00:43.20,0:00:43.59,Cap,,0,0,0,,O {\c&H004F08FF&}T2{\r}
-Dialogue: 0,0:00:43.59,0:00:43.76,Cap,,0,0,0,,{\c&H004F08FF&}MAIS{\r} UM.
-Dialogue: 0,0:00:43.76,0:00:44.04,Cap,,0,0,0,,MAIS {\c&H004F08FF&}UM.{\r}
-Dialogue: 0,0:00:44.04,0:00:44.33,Cap,,0,0,0,,{\c&H004F08FF&}PORQUE{\r} É NOVO E
-Dialogue: 0,0:00:44.33,0:00:44.43,Cap,,0,0,0,,PORQUE {\c&H004F08FF&}É{\r} NOVO E
-Dialogue: 0,0:00:44.43,0:00:44.57,Cap,,0,0,0,,PORQUE É {\c&H004F08FF&}NOVO E{\r}
-Dialogue: 0,0:00:44.57,0:00:44.81,Cap,,0,0,0,,{\c&H004F08FF&}FICA{\r} NO CENTRO
-Dialogue: 0,0:00:44.81,0:00:44.94,Cap,,0,0,0,,FICA {\c&H004F08FF&}NO{\r} CENTRO
-Dialogue: 0,0:00:44.94,0:00:45.13,Cap,,0,0,0,,FICA NO {\c&H004F08FF&}CENTRO{\r}
-Dialogue: 0,0:00:45.13,0:00:45.61,Cap,,0,0,0,,HISTÓRICO.
-Dialogue: 0,0:00:45.61,0:00:45.87,Cap,,0,0,0,,{\c&H004F08FF&}ENQUANTO{\r} QUE O
-Dialogue: 0,0:00:45.87,0:00:46.00,Cap,,0,0,0,,ENQUANTO {\c&H004F08FF&}QUE{\r} O
-Dialogue: 0,0:00:46.00,0:00:46.02,Cap,,0,0,0,,ENQUANTO QUE {\c&H004F08FF&}O{\r}
-Dialogue: 0,0:00:46.02,0:00:46.65,Cap,,0,0,0,,{\c&H004F08FF&}T2+1{\r} É REMODELADO,
-Dialogue: 0,0:00:46.65,0:00:46.89,Cap,,0,0,0,,T2+1 {\c&H004F08FF&}É{\r} REMODELADO,
-Dialogue: 0,0:00:46.89,0:00:47.48,Cap,,0,0,0,,T2+1 É {\c&H004F08FF&}REMODELADO,{\r}
-Dialogue: 0,0:00:47.48,0:00:47.56,Cap,,0,0,0,,{\c&H004F08FF&}ESTÁ{\r} PRONTO A
-Dialogue: 0,0:00:47.56,0:00:47.76,Cap,,0,0,0,,ESTÁ {\c&H004F08FF&}PRONTO{\r} A
-Dialogue: 0,0:00:47.76,0:00:47.96,Cap,,0,0,0,,ESTÁ PRONTO {\c&H004F08FF&}A{\r}
-Dialogue: 0,0:00:47.96,0:00:48.17,Cap,,0,0,0,,HABITAR.
-Dialogue: 0,0:00:48.17,0:00:49.06,Cap,,0,0,0,,{\c&H004F08FF&}E{\r} O T3,
-Dialogue: 0,0:00:49.06,0:00:49.13,Cap,,0,0,0,,E {\c&H004F08FF&}O{\r} T3,
-Dialogue: 0,0:00:49.13,0:00:49.52,Cap,,0,0,0,,E O {\c&H004F08FF&}T3,{\r}
-Dialogue: 0,0:00:49.52,0:00:49.65,Cap,,0,0,0,,{\c&H004F08FF&}DÁ-TE{\r} MAIS DE
-Dialogue: 0,0:00:49.65,0:00:50.17,Cap,,0,0,0,,DÁ-TE {\c&H004F08FF&}MAIS{\r} DE
-Dialogue: 0,0:00:50.17,0:00:50.61,Cap,,0,0,0,,DÁ-TE MAIS {\c&H004F08FF&}DE{\r}
-Dialogue: 0,0:00:50.61,0:00:50.91,Cap,,0,0,0,,{\c&H004F08FF&}3{\r} VEZES A
-Dialogue: 0,0:00:50.91,0:00:51.11,Cap,,0,0,0,,3 {\c&H004F08FF&}VEZES{\r} A
-Dialogue: 0,0:00:51.11,0:00:51.41,Cap,,0,0,0,,3 VEZES {\c&H004F08FF&}A{\r}
-Dialogue: 0,0:00:51.41,0:00:51.56,Cap,,0,0,0,,{\c&H004F08FF&}ÁREA{\r} DO T1
-Dialogue: 0,0:00:51.56,0:00:51.70,Cap,,0,0,0,,ÁREA {\c&H004F08FF&}DO{\r} T1
-Dialogue: 0,0:00:51.70,0:00:52.07,Cap,,0,0,0,,ÁREA DO {\c&H004F08FF&}T1{\r}
-Dialogue: 0,0:00:52.07,0:00:52.28,Cap,,0,0,0,,{\c&H004F08FF&}POR{\r} APENAS 25
-Dialogue: 0,0:00:52.28,0:00:52.56,Cap,,0,0,0,,POR {\c&H004F08FF&}APENAS{\r} 25
-Dialogue: 0,0:00:52.56,0:00:53.11,Cap,,0,0,0,,POR APENAS {\c&H004F08FF&}25{\r}
-Dialogue: 0,0:00:53.11,0:00:53.30,Cap,,0,0,0,,{\c&H004F08FF&}MIL{\r} EUROS A
-Dialogue: 0,0:00:53.30,0:00:53.48,Cap,,0,0,0,,MIL {\c&H004F08FF&}EUROS{\r} A
-Dialogue: 0,0:00:53.48,0:00:53.63,Cap,,0,0,0,,MIL EUROS {\c&H004F08FF&}A{\r}
-Dialogue: 0,0:00:53.63,0:00:53.94,Cap,,0,0,0,,MAIS.
-Dialogue: 0,0:00:53.94,0:00:54.41,Cap,,0,0,0,,{\c&H004F08FF&}QUAL{\r} É QUE
-Dialogue: 0,0:00:54.41,0:00:54.50,Cap,,0,0,0,,QUAL {\c&H004F08FF&}É{\r} QUE
-Dialogue: 0,0:00:54.50,0:00:54.59,Cap,,0,0,0,,QUAL É {\c&H004F08FF&}QUE{\r}
-Dialogue: 0,0:00:54.59,0:00:54.69,Cap,,0,0,0,,{\c&H004F08FF&}TU{\r} ESCOLHIAS?
-Dialogue: 0,0:00:54.69,0:00:55.22,Cap,,0,0,0,,TU {\c&H004F08FF&}ESCOLHIAS?{\r}
-Dialogue: 0,0:00:55.22,0:00:55.59,Cap,,0,0,0,,{\c&H004F08FF&}DIZ-ME{\r} NOS COMENTÁRIOS
-Dialogue: 0,0:00:55.59,0:00:55.72,Cap,,0,0,0,,DIZ-ME {\c&H004F08FF&}NOS{\r} COMENTÁRIOS
-Dialogue: 0,0:00:55.72,0:00:56.20,Cap,,0,0,0,,DIZ-ME NOS {\c&H004F08FF&}COMENTÁRIOS{\r}
-Dialogue: 0,0:00:56.20,0:00:56.44,Cap,,0,0,0,,{\c&H004F08FF&}OU{\r} ENVIA UMA
-Dialogue: 0,0:00:56.44,0:00:56.69,Cap,,0,0,0,,OU {\c&H004F08FF&}ENVIA{\r} UMA
-Dialogue: 0,0:00:56.69,0:00:56.83,Cap,,0,0,0,,OU ENVIA {\c&H004F08FF&}UMA{\r}
-Dialogue: 0,0:00:56.83,0:00:57.41,Cap,,0,0,0,,MENSAGEM.
-Dialogue: 0,0:00:57.41,0:00:57.74,Cap,,0,0,0,,EU {\c&H004F08FF&}SOU{\r} ANDREIA
-Dialogue: 1,0:00:57.74,0:01:01.24,CTA,,0,0,0,,{\pos(540,1065)\fad(200,0)\t(0,180,\fscx108\fscy108)\t(180,320,\fscx100\fscy100)}Partilha com quem procura casa\N{\fs58\c&H004F08FF&}@andreiaferreira_zome
+Dialogue: 0,0:00:00.09,0:00:00.37,Cap,,0,0,0,,{\c&H004F08FF&}O{\r} QUE É
+Dialogue: 0,0:00:00.37,0:00:00.50,Cap,,0,0,0,,O {\c&H004F08FF&}QUE{\r} É
+Dialogue: 0,0:00:00.50,0:00:00.59,Cap,,0,0,0,,O QUE {\c&H004F08FF&}É{\r}
+Dialogue: 0,0:00:00.59,0:00:00.61,Cap,,0,0,0,,{\c&H004F08FF&}QUE{\r} SE COMPRA
+Dialogue: 0,0:00:00.61,0:00:00.78,Cap,,0,0,0,,QUE {\c&H004F08FF&}SE{\r} COMPRA
+Dialogue: 0,0:00:00.78,0:00:01.15,Cap,,0,0,0,,QUE SE {\c&H004F08FF&}COMPRA{\r}
+Dialogue: 0,0:00:01.15,0:00:01.37,Cap,,0,0,0,,{\c&H004F08FF&}COM{\r} MENOS DE
+Dialogue: 0,0:00:01.37,0:00:01.70,Cap,,0,0,0,,COM {\c&H004F08FF&}MENOS{\r} DE
+Dialogue: 0,0:00:01.70,0:00:01.91,Cap,,0,0,0,,COM MENOS {\c&H004F08FF&}DE{\r}
+Dialogue: 0,0:00:01.91,0:00:02.94,Cap,,0,0,0,,{\c&H004F08FF&}279{\r} MIL EUROS
+Dialogue: 0,0:00:02.94,0:00:03.20,Cap,,0,0,0,,279 {\c&H004F08FF&}MIL{\r} EUROS
+Dialogue: 0,0:00:03.20,0:00:03.48,Cap,,0,0,0,,279 MIL {\c&H004F08FF&}EUROS{\r}
+Dialogue: 0,0:00:03.48,0:00:03.69,Cap,,0,0,0,,{\c&H004F08FF&}NO{\r} DISTRITO DE BRAGA?
+Dialogue: 0,0:00:03.69,0:00:03.96,Cap,,0,0,0,,NO {\c&H004F08FF&}DISTRITO DE{\r} BRAGA?
+Dialogue: 0,0:00:03.96,0:00:04.57,Cap,,0,0,0,,NO DISTRITO DE {\c&H004F08FF&}BRAGA?{\r}
+Dialogue: 0,0:00:04.57,0:00:04.65,Cap,,0,0,0,,{\c&H004F08FF&}EU{\r} ESCOLHI TRÊS
+Dialogue: 0,0:00:04.65,0:00:04.83,Cap,,0,0,0,,EU {\c&H004F08FF&}ESCOLHI{\r} TRÊS
+Dialogue: 0,0:00:04.83,0:00:05.06,Cap,,0,0,0,,EU ESCOLHI {\c&H004F08FF&}TRÊS{\r}
+Dialogue: 0,0:00:05.06,0:00:05.35,Cap,,0,0,0,,{\c&H004F08FF&}CASAS{\r} COM CERCA
+Dialogue: 0,0:00:05.35,0:00:05.56,Cap,,0,0,0,,CASAS {\c&H004F08FF&}COM{\r} CERCA
+Dialogue: 0,0:00:05.56,0:00:05.76,Cap,,0,0,0,,CASAS COM {\c&H004F08FF&}CERCA{\r}
+Dialogue: 0,0:00:05.76,0:00:06.06,Cap,,0,0,0,,{\c&H004F08FF&}DE{\r} 25 MIL
+Dialogue: 0,0:00:06.06,0:00:06.41,Cap,,0,0,0,,DE {\c&H004F08FF&}25{\r} MIL
+Dialogue: 0,0:00:06.41,0:00:06.63,Cap,,0,0,0,,DE 25 {\c&H004F08FF&}MIL{\r}
+Dialogue: 0,0:00:06.63,0:00:06.81,Cap,,0,0,0,,{\c&H004F08FF&}EUROS{\r} DE DIFERENÇA
+Dialogue: 0,0:00:06.81,0:00:06.91,Cap,,0,0,0,,EUROS {\c&H004F08FF&}DE{\r} DIFERENÇA
+Dialogue: 0,0:00:06.91,0:00:07.24,Cap,,0,0,0,,EUROS DE {\c&H004F08FF&}DIFERENÇA{\r}
+Dialogue: 0,0:00:07.24,0:00:07.72,Cap,,0,0,0,,{\c&H004F08FF&}ENTRE{\r} CADA UMA.
+Dialogue: 0,0:00:07.72,0:00:08.02,Cap,,0,0,0,,ENTRE {\c&H004F08FF&}CADA{\r} UMA.
+Dialogue: 0,0:00:08.02,0:00:09.15,Cap,,0,0,0,,ENTRE CADA {\c&H004F08FF&}UMA.{\r}
+Dialogue: 0,0:00:09.63,0:00:10.34,Cap,,0,0,0,,PRIMEIRO,
+Dialogue: 0,0:00:10.34,0:00:10.54,Cap,,0,0,0,,{\c&H004F08FF&}UM{\r} T2+1 NAS
+Dialogue: 0,0:00:10.54,0:00:11.49,Cap,,0,0,0,,UM {\c&H004F08FF&}T2+1{\r} NAS
+Dialogue: 0,0:00:11.49,0:00:11.63,Cap,,0,0,0,,UM T2+1 {\c&H004F08FF&}NAS{\r}
+Dialogue: 0,0:00:11.63,0:00:11.95,Cap,,0,0,0,,{\c&H004F08FF&}CALDAS{\r} DAS TAIPAS,
+Dialogue: 0,0:00:11.95,0:00:12.10,Cap,,0,0,0,,CALDAS {\c&H004F08FF&}DAS{\r} TAIPAS,
+Dialogue: 0,0:00:12.10,0:00:12.56,Cap,,0,0,0,,CALDAS DAS {\c&H004F08FF&}TAIPAS,{\r}
+Dialogue: 0,0:00:12.56,0:00:12.61,Cap,,0,0,0,,{\c&H004F08FF&}EM{\r} GUIMARÃES, POR
+Dialogue: 0,0:00:12.61,0:00:13.19,Cap,,0,0,0,,EM {\c&H004F08FF&}GUIMARÃES,{\r} POR
+Dialogue: 0,0:00:13.19,0:00:13.43,Cap,,0,0,0,,EM GUIMARÃES, {\c&H004F08FF&}POR{\r}
+Dialogue: 0,0:00:13.43,0:00:14.26,Cap,,0,0,0,,{\c&H004F08FF&}225{\r} MIL EUROS.
+Dialogue: 0,0:00:14.26,0:00:14.43,Cap,,0,0,0,,225 {\c&H004F08FF&}MIL{\r} EUROS.
+Dialogue: 0,0:00:14.43,0:00:14.67,Cap,,0,0,0,,225 MIL {\c&H004F08FF&}EUROS.{\r}
+Dialogue: 0,0:00:14.67,0:00:14.78,Cap,,0,0,0,,{\c&H004F08FF&}ELE{\r} TEM 85
+Dialogue: 0,0:00:14.78,0:00:14.99,Cap,,0,0,0,,ELE {\c&H004F08FF&}TEM{\r} 85
+Dialogue: 0,0:00:14.99,0:00:15.45,Cap,,0,0,0,,ELE TEM {\c&H004F08FF&}85{\r}
+Dialogue: 0,0:00:15.45,0:00:15.69,Cap,,0,0,0,,{\c&H004F08FF&}METROS{\r} QUADRADOS, ESTÁ
+Dialogue: 0,0:00:15.69,0:00:16.17,Cap,,0,0,0,,METROS {\c&H004F08FF&}QUADRADOS,{\r} ESTÁ
+Dialogue: 0,0:00:16.17,0:00:16.26,Cap,,0,0,0,,METROS QUADRADOS, {\c&H004F08FF&}ESTÁ{\r}
+Dialogue: 0,0:00:16.26,0:00:16.67,Cap,,0,0,0,,{\c&H004F08FF&}TOTALMENTE{\r} REMODELADO E
+Dialogue: 0,0:00:16.67,0:00:17.39,Cap,,0,0,0,,TOTALMENTE {\c&H004F08FF&}REMODELADO{\r} E
+Dialogue: 0,0:00:17.39,0:00:17.86,Cap,,0,0,0,,TOTALMENTE REMODELADO {\c&H004F08FF&}E{\r}
+Dialogue: 0,0:00:17.86,0:00:18.23,Cap,,0,0,0,,{\c&H004F08FF&}VENDE-SE{\r} MOBILADO E
+Dialogue: 0,0:00:18.23,0:00:18.76,Cap,,0,0,0,,VENDE-SE {\c&H004F08FF&}MOBILADO{\r} E
+Dialogue: 0,0:00:18.76,0:00:19.28,Cap,,0,0,0,,VENDE-SE MOBILADO {\c&H004F08FF&}E{\r}
+Dialogue: 0,0:00:19.28,0:00:20.10,Cap,,0,0,0,,EQUIPADO.
+Dialogue: 0,0:00:20.10,0:00:20.91,Cap,,0,0,0,,{\c&H004F08FF&}AGORA,{\r} UM T1
+Dialogue: 0,0:00:20.91,0:00:20.97,Cap,,0,0,0,,AGORA, {\c&H004F08FF&}UM{\r} T1
+Dialogue: 0,0:00:20.97,0:00:21.36,Cap,,0,0,0,,AGORA, UM {\c&H004F08FF&}T1{\r}
+Dialogue: 0,0:00:21.36,0:00:21.67,Cap,,0,0,0,,{\c&H004F08FF&}NA{\r} ENTRADA DO
+Dialogue: 0,0:00:21.67,0:00:21.87,Cap,,0,0,0,,NA {\c&H004F08FF&}ENTRADA{\r} DO
+Dialogue: 0,0:00:21.87,0:00:22.13,Cap,,0,0,0,,NA ENTRADA {\c&H004F08FF&}DO{\r}
+Dialogue: 0,0:00:22.13,0:00:22.36,Cap,,0,0,0,,{\c&H004F08FF&}CENTRO{\r} HISTÓRICO DE
+Dialogue: 0,0:00:22.36,0:00:22.99,Cap,,0,0,0,,CENTRO {\c&H004F08FF&}HISTÓRICO{\r} DE
+Dialogue: 0,0:00:22.99,0:00:23.19,Cap,,0,0,0,,CENTRO HISTÓRICO {\c&H004F08FF&}DE{\r}
+Dialogue: 0,0:00:23.19,0:00:23.60,Cap,,0,0,0,,{\c&H004F08FF&}BRAGA{\r} POR 249
+Dialogue: 0,0:00:23.60,0:00:23.80,Cap,,0,0,0,,BRAGA {\c&H004F08FF&}POR{\r} 249
+Dialogue: 0,0:00:23.80,0:00:24.73,Cap,,0,0,0,,BRAGA POR {\c&H004F08FF&}249{\r}
+Dialogue: 0,0:00:24.73,0:00:24.93,Cap,,0,0,0,,{\c&H004F08FF&}MIL{\r} EUROS.
+Dialogue: 0,0:00:24.93,0:00:25.15,Cap,,0,0,0,,MIL {\c&H004F08FF&}EUROS.{\r}
+Dialogue: 0,0:00:25.15,0:00:25.30,Cap,,0,0,0,,{\c&H004F08FF&}TEM{\r} 40 METROS
+Dialogue: 0,0:00:25.30,0:00:25.49,Cap,,0,0,0,,TEM {\c&H004F08FF&}40{\r} METROS
+Dialogue: 0,0:00:25.49,0:00:25.71,Cap,,0,0,0,,TEM 40 {\c&H004F08FF&}METROS{\r}
+Dialogue: 0,0:00:25.71,0:00:26.28,Cap,,0,0,0,,{\c&H004F08FF&}QUADRADOS,{\r} MAS É
+Dialogue: 0,0:00:26.28,0:00:27.28,Cap,,0,0,0,,QUADRADOS, {\c&H004F08FF&}MAS{\r} É
+Dialogue: 0,0:00:27.28,0:00:27.37,Cap,,0,0,0,,QUADRADOS, MAS {\c&H004F08FF&}É{\r}
+Dialogue: 0,0:00:27.37,0:00:27.45,Cap,,0,0,0,,{\c&H004F08FF&}UM{\r} APARTAMENTO NOVO,
+Dialogue: 0,0:00:27.45,0:00:27.78,Cap,,0,0,0,,UM {\c&H004F08FF&}APARTAMENTO{\r} NOVO,
+Dialogue: 0,0:00:27.78,0:00:28.21,Cap,,0,0,0,,UM APARTAMENTO {\c&H004F08FF&}NOVO,{\r}
+Dialogue: 0,0:00:28.21,0:00:28.34,Cap,,0,0,0,,{\c&H004F08FF&}COM{\r} ELEVADOR, AR-CONDICIONADO
+Dialogue: 0,0:00:28.34,0:00:28.99,Cap,,0,0,0,,COM {\c&H004F08FF&}ELEVADOR,{\r} AR-CONDICIONADO
+Dialogue: 0,0:00:28.99,0:00:29.00,Cap,,0,0,0,,COM ELEVADOR, {\c&H004F08FF&}AR-CONDICIONADO{\r}
+Dialogue: 0,0:00:29.52,0:00:29.78,Cap,,0,0,0,,{\c&H004F08FF&}E{\r} COZINHA EQUIPADA.
+Dialogue: 0,0:00:29.78,0:00:30.21,Cap,,0,0,0,,E {\c&H004F08FF&}COZINHA{\r} EQUIPADA.
+Dialogue: 0,0:00:30.21,0:00:30.98,Cap,,0,0,0,,E COZINHA {\c&H004F08FF&}EQUIPADA.{\r}
+Dialogue: 0,0:00:30.98,0:00:31.22,Cap,,0,0,0,,{\c&H004F08FF&}ESTÁ{\r} EM CONSTRUÇÃO
+Dialogue: 0,0:00:31.22,0:00:31.34,Cap,,0,0,0,,ESTÁ {\c&H004F08FF&}EM{\r} CONSTRUÇÃO
+Dialogue: 0,0:00:31.34,0:00:31.84,Cap,,0,0,0,,ESTÁ EM {\c&H004F08FF&}CONSTRUÇÃO{\r}
+Dialogue: 0,0:00:31.84,0:00:32.02,Cap,,0,0,0,,{\c&H004F08FF&}E{\r} COM ENTREGA
+Dialogue: 0,0:00:32.02,0:00:32.11,Cap,,0,0,0,,E {\c&H004F08FF&}COM{\r} ENTREGA
+Dialogue: 0,0:00:32.11,0:00:32.58,Cap,,0,0,0,,E COM {\c&H004F08FF&}ENTREGA{\r}
+Dialogue: 0,0:00:32.58,0:00:32.85,Cap,,0,0,0,,{\c&H004F08FF&}EM{\r} 24 MESES.
+Dialogue: 0,0:00:32.85,0:00:33.28,Cap,,0,0,0,,EM {\c&H004F08FF&}24{\r} MESES.
+Dialogue: 0,0:00:33.28,0:00:34.01,Cap,,0,0,0,,EM 24 {\c&H004F08FF&}MESES.{\r}
+Dialogue: 0,0:00:34.01,0:00:34.14,Cap,,0,0,0,,{\c&H004F08FF&}E{\r} POR FIM,
+Dialogue: 0,0:00:34.14,0:00:34.28,Cap,,0,0,0,,E {\c&H004F08FF&}POR{\r} FIM,
+Dialogue: 0,0:00:34.28,0:00:34.70,Cap,,0,0,0,,E POR {\c&H004F08FF&}FIM,{\r}
+Dialogue: 0,0:00:34.70,0:00:34.75,Cap,,0,0,0,,{\c&H004F08FF&}UM{\r} T3, EM
+Dialogue: 0,0:00:34.75,0:00:35.34,Cap,,0,0,0,,UM {\c&H004F08FF&}T3,{\r} EM
+Dialogue: 0,0:00:35.34,0:00:35.42,Cap,,0,0,0,,UM T3, {\c&H004F08FF&}EM{\r}
+Dialogue: 0,0:00:35.42,0:00:35.99,Cap,,0,0,0,,{\c&H004F08FF&}LOMAR,{\r} PRONTO A
+Dialogue: 0,0:00:35.99,0:00:36.18,Cap,,0,0,0,,LOMAR, {\c&H004F08FF&}PRONTO{\r} A
+Dialogue: 0,0:00:36.18,0:00:36.38,Cap,,0,0,0,,LOMAR, PRONTO {\c&H004F08FF&}A{\r}
+Dialogue: 0,0:00:36.38,0:00:36.64,Cap,,0,0,0,,{\c&H004F08FF&}HABITAR{\r} POR 274
+Dialogue: 0,0:00:36.64,0:00:37.23,Cap,,0,0,0,,HABITAR {\c&H004F08FF&}POR{\r} 274
+Dialogue: 0,0:00:37.23,0:00:38.12,Cap,,0,0,0,,HABITAR POR {\c&H004F08FF&}274{\r}
+Dialogue: 0,0:00:38.12,0:00:38.36,Cap,,0,0,0,,{\c&H004F08FF&}MIL{\r} EUROS.
+Dialogue: 0,0:00:38.36,0:00:38.66,Cap,,0,0,0,,MIL {\c&H004F08FF&}EUROS.{\r}
+Dialogue: 0,0:00:38.66,0:00:38.77,Cap,,0,0,0,,{\c&H004F08FF&}SÃO{\r} 138 METROS
+Dialogue: 0,0:00:38.77,0:00:39.79,Cap,,0,0,0,,SÃO {\c&H004F08FF&}138{\r} METROS
+Dialogue: 0,0:00:39.79,0:00:40.10,Cap,,0,0,0,,SÃO 138 {\c&H004F08FF&}METROS{\r}
+Dialogue: 0,0:00:40.10,0:00:40.58,Cap,,0,0,0,,{\c&H004F08FF&}QUADRADOS{\r} COM SUÍTE,
+Dialogue: 0,0:00:40.58,0:00:40.86,Cap,,0,0,0,,QUADRADOS {\c&H004F08FF&}COM{\r} SUÍTE,
+Dialogue: 0,0:00:40.86,0:00:41.29,Cap,,0,0,0,,QUADRADOS COM {\c&H004F08FF&}SUÍTE,{\r}
+Dialogue: 0,0:00:41.29,0:00:41.82,Cap,,0,0,0,,{\c&H004F08FF&}VARANDAS,{\r} GARAGEM FECHADA.
+Dialogue: 0,0:00:41.82,0:00:42.31,Cap,,0,0,0,,VARANDAS, {\c&H004F08FF&}GARAGEM{\r} FECHADA.
+Dialogue: 0,0:00:42.31,0:00:42.83,Cap,,0,0,0,,VARANDAS, GARAGEM {\c&H004F08FF&}FECHADA.{\r}
+Dialogue: 0,0:00:42.83,0:00:43.28,Cap,,0,0,0,,{\c&H004F08FF&}QUAL{\r} É A
+Dialogue: 0,0:00:43.28,0:00:43.35,Cap,,0,0,0,,QUAL {\c&H004F08FF&}É{\r} A
+Dialogue: 0,0:00:43.35,0:00:43.91,Cap,,0,0,0,,DIFERENÇA?
+Dialogue: 0,0:00:43.91,0:00:43.96,Cap,,0,0,0,,{\c&H004F08FF&}O{\r} T1 CUSTA
+Dialogue: 0,0:00:43.96,0:00:44.15,Cap,,0,0,0,,O {\c&H004F08FF&}T1{\r} CUSTA
+Dialogue: 0,0:00:44.15,0:00:44.50,Cap,,0,0,0,,O T1 {\c&H004F08FF&}CUSTA{\r}
+Dialogue: 0,0:00:44.50,0:00:44.74,Cap,,0,0,0,,{\c&H004F08FF&}MAIS{\r} DO QUE
+Dialogue: 0,0:00:44.74,0:00:44.89,Cap,,0,0,0,,MAIS {\c&H004F08FF&}DO{\r} QUE
+Dialogue: 0,0:00:44.89,0:00:44.96,Cap,,0,0,0,,MAIS DO {\c&H004F08FF&}QUE{\r}
+Dialogue: 0,0:00:44.96,0:00:45.00,Cap,,0,0,0,,{\c&H004F08FF&}O{\r} T2 MAIS
+Dialogue: 0,0:00:45.00,0:00:45.57,Cap,,0,0,0,,O {\c&H004F08FF&}T2{\r} MAIS
+Dialogue: 0,0:00:45.57,0:00:45.74,Cap,,0,0,0,,O T2 {\c&H004F08FF&}MAIS{\r}
+Dialogue: 0,0:00:45.74,0:00:46.12,Cap,,0,0,0,,UM.
+Dialogue: 0,0:00:46.12,0:00:46.41,Cap,,0,0,0,,{\c&H004F08FF&}PORQUE{\r} É NOVO E
+Dialogue: 0,0:00:46.41,0:00:46.51,Cap,,0,0,0,,PORQUE {\c&H004F08FF&}É{\r} NOVO E
+Dialogue: 0,0:00:46.51,0:00:46.65,Cap,,0,0,0,,PORQUE É {\c&H004F08FF&}NOVO E{\r}
+Dialogue: 0,0:00:46.65,0:00:46.90,Cap,,0,0,0,,{\c&H004F08FF&}FICA{\r} NO CENTRO
+Dialogue: 0,0:00:46.90,0:00:47.02,Cap,,0,0,0,,FICA {\c&H004F08FF&}NO{\r} CENTRO
+Dialogue: 0,0:00:47.02,0:00:47.21,Cap,,0,0,0,,FICA NO {\c&H004F08FF&}CENTRO{\r}
+Dialogue: 0,0:00:47.21,0:00:47.69,Cap,,0,0,0,,HISTÓRICO.
+Dialogue: 0,0:00:47.69,0:00:47.95,Cap,,0,0,0,,{\c&H004F08FF&}ENQUANTO{\r} QUE O
+Dialogue: 0,0:00:47.95,0:00:48.08,Cap,,0,0,0,,ENQUANTO {\c&H004F08FF&}QUE{\r} O
+Dialogue: 0,0:00:48.08,0:00:48.10,Cap,,0,0,0,,ENQUANTO QUE {\c&H004F08FF&}O{\r}
+Dialogue: 0,0:00:48.10,0:00:48.73,Cap,,0,0,0,,{\c&H004F08FF&}T2+1{\r} É REMODELADO,
+Dialogue: 0,0:00:48.73,0:00:48.97,Cap,,0,0,0,,T2+1 {\c&H004F08FF&}É{\r} REMODELADO,
+Dialogue: 0,0:00:48.97,0:00:49.56,Cap,,0,0,0,,T2+1 É {\c&H004F08FF&}REMODELADO,{\r}
+Dialogue: 0,0:00:49.56,0:00:49.64,Cap,,0,0,0,,{\c&H004F08FF&}ESTÁ{\r} PRONTO A
+Dialogue: 0,0:00:49.64,0:00:49.84,Cap,,0,0,0,,ESTÁ {\c&H004F08FF&}PRONTO{\r} A
+Dialogue: 0,0:00:49.84,0:00:50.04,Cap,,0,0,0,,ESTÁ PRONTO {\c&H004F08FF&}A{\r}
+Dialogue: 0,0:00:50.04,0:00:50.25,Cap,,0,0,0,,HABITAR.
+Dialogue: 0,0:00:50.25,0:00:51.14,Cap,,0,0,0,,{\c&H004F08FF&}E{\r} O T3,
+Dialogue: 0,0:00:51.14,0:00:51.21,Cap,,0,0,0,,E {\c&H004F08FF&}O{\r} T3,
+Dialogue: 0,0:00:51.21,0:00:51.69,Cap,,0,0,0,,E O {\c&H004F08FF&}T3,{\r}
+Dialogue: 0,0:00:51.69,0:00:51.82,Cap,,0,0,0,,{\c&H004F08FF&}DÁ-TE{\r} MAIS DE
+Dialogue: 0,0:00:51.82,0:00:52.34,Cap,,0,0,0,,DÁ-TE {\c&H004F08FF&}MAIS{\r} DE
+Dialogue: 0,0:00:52.34,0:00:52.78,Cap,,0,0,0,,DÁ-TE MAIS {\c&H004F08FF&}DE{\r}
+Dialogue: 0,0:00:52.78,0:00:53.08,Cap,,0,0,0,,{\c&H004F08FF&}3{\r} VEZES A
+Dialogue: 0,0:00:53.08,0:00:53.28,Cap,,0,0,0,,3 {\c&H004F08FF&}VEZES{\r} A
+Dialogue: 0,0:00:53.28,0:00:53.58,Cap,,0,0,0,,3 VEZES {\c&H004F08FF&}A{\r}
+Dialogue: 0,0:00:53.58,0:00:53.73,Cap,,0,0,0,,{\c&H004F08FF&}ÁREA{\r} DO T1
+Dialogue: 0,0:00:53.73,0:00:53.88,Cap,,0,0,0,,ÁREA {\c&H004F08FF&}DO{\r} T1
+Dialogue: 0,0:00:53.88,0:00:54.25,Cap,,0,0,0,,ÁREA DO {\c&H004F08FF&}T1{\r}
+Dialogue: 0,0:00:54.25,0:00:54.45,Cap,,0,0,0,,{\c&H004F08FF&}POR{\r} APENAS 25
+Dialogue: 0,0:00:54.45,0:00:54.73,Cap,,0,0,0,,POR {\c&H004F08FF&}APENAS{\r} 25
+Dialogue: 0,0:00:54.73,0:00:55.28,Cap,,0,0,0,,POR APENAS {\c&H004F08FF&}25{\r}
+Dialogue: 0,0:00:55.28,0:00:55.47,Cap,,0,0,0,,{\c&H004F08FF&}MIL{\r} EUROS A
+Dialogue: 0,0:00:55.47,0:00:55.65,Cap,,0,0,0,,MIL {\c&H004F08FF&}EUROS{\r} A
+Dialogue: 0,0:00:55.65,0:00:55.80,Cap,,0,0,0,,MIL EUROS {\c&H004F08FF&}A{\r}
+Dialogue: 0,0:00:55.80,0:00:56.23,Cap,,0,0,0,,MAIS.
+Dialogue: 0,0:00:56.23,0:00:56.69,Cap,,0,0,0,,{\c&H004F08FF&}QUAL{\r} É QUE
+Dialogue: 0,0:00:56.69,0:00:56.78,Cap,,0,0,0,,QUAL {\c&H004F08FF&}É{\r} QUE
+Dialogue: 0,0:00:56.78,0:00:56.88,Cap,,0,0,0,,QUAL É {\c&H004F08FF&}QUE{\r}
+Dialogue: 0,0:00:56.88,0:00:56.97,Cap,,0,0,0,,{\c&H004F08FF&}TU{\r} ESCOLHIAS?
+Dialogue: 0,0:00:56.97,0:00:57.66,Cap,,0,0,0,,TU {\c&H004F08FF&}ESCOLHIAS?{\r}
+Dialogue: 0,0:00:57.66,0:00:58.03,Cap,,0,0,0,,{\c&H004F08FF&}DIZ-ME{\r} NOS COMENTÁRIOS
+Dialogue: 0,0:00:58.03,0:00:58.16,Cap,,0,0,0,,DIZ-ME {\c&H004F08FF&}NOS{\r} COMENTÁRIOS
+Dialogue: 0,0:00:58.16,0:00:58.64,Cap,,0,0,0,,DIZ-ME NOS {\c&H004F08FF&}COMENTÁRIOS{\r}
+Dialogue: 0,0:00:58.64,0:00:58.88,Cap,,0,0,0,,{\c&H004F08FF&}OU{\r} ENVIA UMA
+Dialogue: 0,0:00:58.88,0:00:59.12,Cap,,0,0,0,,OU {\c&H004F08FF&}ENVIA{\r} UMA
+Dialogue: 0,0:00:59.12,0:00:59.27,Cap,,0,0,0,,OU ENVIA {\c&H004F08FF&}UMA{\r}
+Dialogue: 0,0:00:59.27,0:00:59.93,Cap,,0,0,0,,MENSAGEM.
+Dialogue: 0,0:00:59.93,0:01:00.43,Cap,,0,0,0,,EU {\c&H004F08FF&}SOU{\r} ANDREIA
+Dialogue: 1,0:01:00.43,0:01:03.93,CTA,,0,0,0,,{\pos(540,1065)\fad(200,0)\t(0,180,\fscx108\fscy108)\t(180,320,\fscx100\fscy100)}Partilha com quem procura casa\N{\fs58\c&H004F08FF&}@andreiaferreira_zome

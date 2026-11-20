@@ -1,0 +1,18 @@
+[
+  {
+    "id": "piano-feutre",
+    "name": "Piano feutré",
+    "mood": "chill",
+    "bpm": 68,
+    "desc": "Piano feutré intime, cordes douces, souffle de bande",
+    "dur": 148.2
+  },
+  {
+    "id": "bali",
+    "name": "Bali calme",
+    "mood": "chill",
+    "bpm": 90,
+    "desc": "Kalimba, marimba, flûte douce, percussions à la main",
+    "dur": 155.3
+  }
+]

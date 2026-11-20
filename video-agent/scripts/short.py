@@ -34,6 +34,7 @@ DEFAULTS = {
                  'contorno': 6, 'estilo': 'contorno', 'posicao': 0.68},
     'ritmo': {'cortar_silencios': True, 'silencio_max': 0.35, 'margem': 0.08, 'velocidade': 1.0},
     'som': {'normalizar': True},
+    'musica': {'ficheiro': '', 'volume_db': -17, 'baixar_quando_fala': True, 'inicio': 0.0},
     'cta': {'ativo': False, 'texto': '', 'opcoes': [], 'instagram': '', 'duracao': 2.5, 'posicao': 0.42},
     'ritmos': {},
     'logotipos': {
@@ -167,6 +168,53 @@ def cmd_transcribe(a) -> None:
 
 
 # ---------------------------------------------------------------- planeamento
+def detect_silences(take: Path, noise_db: float = -38, min_d: float = 0.06) -> list[tuple[float, float]]:
+    """Silêncios reais do áudio (início, fim), para os cortes não comerem o fim das palavras."""
+    r = subprocess.run(['ffmpeg', '-v', 'info', '-i', str(take), '-vn', '-af',
+                        f'highpass=f=80,silencedetect=noise={noise_db}dB:d={min_d}', '-f', 'null', '-'],
+                       capture_output=True, text=True)
+    out, start = [], None
+    for line in r.stderr.splitlines():
+        m = re.search(r'silence_start: ([\d.]+)', line)
+        if m:
+            start = float(m.group(1))
+        m = re.search(r'silence_end: ([\d.]+)', line)
+        if m and start is not None:
+            out.append((start, float(m.group(1))))
+            start = None
+    return out
+
+
+def snap_to_silence(segs, silences, dur, reach=0.45, pad=0.05):
+    """Alarga cada corte até ao silêncio mais próximo (o Whisper marca o fim das palavras cedo demais)."""
+    if not silences:
+        return segs
+    out = []
+    for s, e in segs:
+        # fim: avança até ao início do próximo silêncio (máx. `reach` s)
+        nxt = [a for a, b in silences if a >= e - 0.05 and a - e <= reach]
+        e2 = (min(nxt) + pad) if nxt else e
+        # início: recua até ao fim do silêncio anterior (máx. `reach` s)
+        prv = [b for a, b in silences if b <= s + 0.05 and s - b <= reach]
+        s2 = (max(prv) - pad) if prv else s
+        out.append([max(0.0, min(s, s2)), min(dur, max(e, e2))])
+    def silent_share(a, b):
+        """Fração do intervalo [a, b] que é silêncio real."""
+        if b <= a:
+            return 1.0
+        cov = sum(max(0.0, min(b, y) - max(a, x)) for x, y in silences)
+        return cov / (b - a)
+
+    merged = []
+    for s, e in out:
+        # só se corta onde o áudio está mesmo em silêncio; senão junta (não come palavras)
+        if merged and (s <= merged[-1][1] or silent_share(merged[-1][1], s) < 0.6):
+            merged[-1][1] = max(merged[-1][1], e)
+        else:
+            merged.append([s, e])
+    return [(round(s, 3), round(e, 3)) for s, e in merged]
+
+
 def plan_segments(words: list[dict], dur: float, cfg: dict) -> list[tuple[float, float]]:
     r = cfg['ritmo']
     has_del = any(w.get('del') for w in words)
@@ -338,7 +386,9 @@ def build_and_run(take: Path, info: dict, segs, words_remapped, cfg: dict, work:
         f.append(f'[0:v]trim=start={s}:end={e},setpts=PTS-STARTPTS{zoom},setsar=1[v{i}]')
         labels.append(f'[v{i}]')
         if audio:
-            f.append(f'[0:a]atrim=start={s}:end={e},asetpts=PTS-STARTPTS[a{i}]')
+            d = max(0.03, e - s)
+            f.append(f'[0:a]atrim=start={s}:end={e},asetpts=PTS-STARTPTS,'
+                     f'afade=t=in:d=0.012,afade=t=out:st={d - 0.02:.3f}:d=0.02[a{i}]')
             labels.append(f'[a{i}]')
     f.append(f"{''.join(labels)}concat=n={len(segs)}:v=1:a={1 if audio else 0}[vc]{'[ac]' if audio else ''}")
 
@@ -389,14 +439,33 @@ def build_and_run(take: Path, info: dict, segs, words_remapped, cfg: dict, work:
 
     maps = ['-map', '[vout]']
     if audio:
-        af = f'[ac]'
         chain = []
         if abs(speed - 1) > 0.001:
             chain.append(f'atempo={speed}')
-        if cfg['som']['normalizar']:
-            chain.append('loudnorm=I=-14:TP=-1.5:LRA=11')
         chain.append('aresample=48000')
-        f.append(f"{af}{','.join(chain)}[aout]")
+        Mu = cfg.get('musica') or {}
+        mfile = ROOT / Mu['ficheiro'] if Mu.get('ficheiro') else None
+        if mfile and mfile.is_file():
+            # voz nivelada + música baixa que se afasta quando a voz fala (ducking)
+            inputs += ['-stream_loop', '-1', '-ss', f"{float(Mu.get('inicio', 0)):.2f}", '-i', str(mfile)]
+            chain.append('loudnorm=I=-16:TP=-2:LRA=11')
+            f.append(f"[ac]{','.join(chain)},asplit=2[voz][vozsc]")
+            fo = max(0.0, total - 1.8)
+            f.append(f"[{n_in}:a]atrim=0:{total:.3f},asetpts=PTS-STARTPTS,aresample=48000,"
+                     f"volume={float(Mu.get('volume_db', -17))}dB,"
+                     f"afade=t=in:d=1.2,afade=t=out:st={fo:.2f}:d=1.8[mus]")
+            n_in += 1
+            if Mu.get('baixar_quando_fala', True):
+                f.append('[mus][vozsc]sidechaincompress=threshold=0.04:ratio=5:attack=30:release=450:makeup=1[musd]')
+            else:
+                f.append('[vozsc]anullsink;[mus]anull[musd]')
+            tail = ',loudnorm=I=-14:TP=-1.5:LRA=11' if cfg['som']['normalizar'] else ''
+            f.append(f'[voz][musd]amix=inputs=2:duration=first:normalize=0{tail},aresample=48000[aout]')
+        else:
+            if cfg['som']['normalizar']:
+                chain.append('loudnorm=I=-14:TP=-1.5:LRA=11')
+            chain.append('aresample=48000')
+            f.append(f"[ac]{','.join(chain)}[aout]")
         maps += ['-map', '[aout]']
 
     (work / 'filter.txt').write_text(';\n'.join(f), encoding='utf-8')
@@ -516,6 +585,8 @@ def cmd_render(a) -> None:
     info = probe(take)
     auto_logo(cfg, a, take, info)
     segs = plan_segments(data['words'], info['dur'], cfg)
+    if info['audio'] and len(segs) > 1:
+        segs = snap_to_silence(segs, detect_silences(take), info['dur'])
     speed = float(cfg['ritmo']['velocidade'] or 1.0)
     words = remap_words(data['words'], segs, speed)
     out_dir = work / 'output'

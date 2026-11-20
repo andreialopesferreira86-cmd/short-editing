@@ -35,6 +35,11 @@ Depende da fala de cada vídeo — o `/short-editing` escolhe:
   quando a fala já é dinâmica ou o vídeo passa dos 30 s.
 Objetivo da marca: Reels de **15–30 s**, com gancho nos primeiros 2–3 s.
 
+## Música de fundo
+Piano suave com cordas ("Piano feutré"), baixinho, que se afasta quando falo e volta
+nas pausas. Alternativa mais luminosa: "Bali calme" (kalimba e marimba). Ambas geradas
+por código no brain — sem direitos de autor, o Instagram não silencia o vídeo.
+
 ## 6. Chamada para ação (Instagram @andreiaferreira_zome)
 O texto final **varia de vídeo para vídeo** — o `/short-editing` escolhe o que melhor
 encaixa no conteúdo, sem repetir o do vídeo anterior:
@@ -112,15 +117,21 @@ legendas:
 ritmo:                          # por omissão (= normal)
   cortar_silencios: true
   silencio_max: 0.35
-  margem: 0.08
+  margem: 0.12                  # folga antes/depois da fala (s) — os cortes também procuram o silêncio real
   velocidade: 1.0
 
 ritmos:                         # escolhidos por vídeo: render --ritmo rapido
   normal: {silencio_max: 0.35, velocidade: 1.0}
-  rapido: {silencio_max: 0.2, margem: 0.06, velocidade: 1.08}
+  rapido: {silencio_max: 0.25, margem: 0.1, velocidade: 1.08}
 
 som:
   normalizar: true
+
+musica:                         # música de fundo sem direitos de autor (gerada pelo brain)
+  ficheiro: music/piano-feutre.mp3   # alternativa luminosa: music/bali.mp3
+  volume_db: -17                # mais baixo = número mais negativo (ex.: -20)
+  baixar_quando_fala: true      # a música baixa sozinha enquanto fala
+  inicio: 0                     # segundo da música onde começa
 
 cta:
   ativo: true
