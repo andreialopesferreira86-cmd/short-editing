@@ -360,7 +360,7 @@ def build_and_run(take: Path, info: dict, segs, words_remapped, cfg: dict, work:
         v = f'vt{k}'
         n_in += 1
 
-    # logótipo da marca (uma ou várias peças: nome, telefone, monograma…)
+    # logótipo da marca (uma ou várias peças: nome, telefone…)
     M = cfg['logotipos']['marca']
     for k, pc in enumerate(M.get('_pecas') or logo_pieces(M)):
         inputs += ['-loop', '1', '-i', str(ROOT / pc['ficheiro'])]

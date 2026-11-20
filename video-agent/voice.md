@@ -41,7 +41,7 @@ encaixa no conteúdo, sem repetir o do vídeo anterior:
 Sempre com o @andreiaferreira_zome por baixo. Sem emojis no vídeo.
 
 ## 7. Logótipos
-Assinatura em duas peças separadas (sem o monograma AF), como as molduras de canto da marca — simples e
+Assinatura em duas peças separadas, como as molduras de canto da marca — simples e
 equilibrada, nunca um logótipo grande por cima do vídeo:
 - **Telefone** (963 609 184) → canto **inferior esquerdo**
 - **Andreia Ferreira · Consultora Imobiliária** → canto **inferior direito**
